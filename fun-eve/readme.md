@@ -1,4 +1,6 @@
-﻿Domain Driven Design
+﻿fun-eve
+
+A collection of useful utility functions, API integrations, and other .net related support code for other software that I develop for Eve Online.
 
 The project is setup to accomodate F#'s linear compilation. With domain driven design using discriminated unions, rather than using class heirarchy, you use a tree structure of discriminated unions. The most granular nodes are either discriminated unions that are single case and wrap primitive types, or discriminated unions that represent a set of choices and do not wrap any types.
 
