@@ -1,8 +1,8 @@
-﻿namespace EveOnline.IceDomain
+﻿namespace FunEve.IceDomain
 
 module Records = 
-    open EveOnline.ProductDomain.Types
-    open EveOnline.IceDomain.Types
+    open FunEve.ProductDomain.Types
+    open FunEve.IceDomain.Types
 
     type IceYield = {
         HeavyWater          : (HeavyWater) 

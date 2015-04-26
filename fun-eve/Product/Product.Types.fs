@@ -1,4 +1,4 @@
-﻿namespace EveOnline.ProductDomain
+﻿namespace FunEve.ProductDomain
 
 module Types = 
 

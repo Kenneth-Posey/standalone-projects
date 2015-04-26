@@ -1,4 +1,4 @@
-﻿namespace EveOnline.Geography
+﻿namespace FunEve.Geography
 
 module Celestial =     
     

@@ -1,12 +1,12 @@
-namespace EveOnline.DataDomain
+namespace FunEve.DataDomain
 
 module Collections = 
-    open EveOnline.ProductDomain.UnionTypes
-    open EveOnline.OreDomain.Types
-    open EveOnline.IceDomain.Types
-    open EveOnline.ProductDomain.Types
-    open EveOnline.OreDomain.Ore
-    open EveOnline.OreDomain.Records
+    open FunEve.ProductDomain.UnionTypes
+    open FunEve.OreDomain.Types
+    open FunEve.IceDomain.Types
+    open FunEve.ProductDomain.Types
+    open FunEve.OreDomain.Ore
+    open FunEve.OreDomain.Records
 
     open Microsoft.FSharp.Reflection
 

@@ -1,4 +1,4 @@
-﻿namespace EveOnline.OreDomain
+﻿namespace FunEve.OreDomain
 
 module Types =
     type OreRarity = 

@@ -1,8 +1,8 @@
-﻿namespace EveOnline.OreDomain
+﻿namespace FunEve.OreDomain
 
 module Records = 
-    open EveOnline.ProductDomain.Types
-    open EveOnline.OreDomain.Types
+    open FunEve.ProductDomain.Types
+    open FunEve.OreDomain.Types
     
     type OreYield = {
         Tritanium   : Tritanium

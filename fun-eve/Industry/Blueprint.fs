@@ -1,7 +1,7 @@
-namespace EveOnline.Industry
+namespace FunEve.Industry
 
 module Blueprint = 
-    open EveOnline.ProductDomain.Types
+    open FunEve.ProductDomain.Types
     
     type Efficiency = Efficiency of int with
         member this.Value =             

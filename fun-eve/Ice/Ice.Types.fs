@@ -1,4 +1,4 @@
-﻿namespace EveOnline.IceDomain
+﻿namespace FunEve.IceDomain
 
 module Types = 
     type IceType = 

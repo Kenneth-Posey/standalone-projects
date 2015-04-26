@@ -1,9 +1,9 @@
-﻿namespace EveOnline.OreDomain
+﻿namespace FunEve.OreDomain
 
 module Ore = 
-    open EveOnline.ProductDomain.Types
-    open EveOnline.OreDomain.Types
-    open EveOnline.OreDomain.Records
+    open FunEve.ProductDomain.Types
+    open FunEve.OreDomain.Types
+    open FunEve.OreDomain.Records
     
     let RawOreVolume (x:OreType) :Volume =
         Volume <|

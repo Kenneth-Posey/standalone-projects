@@ -1,4 +1,4 @@
-namespace EveOnline.Geography
+namespace FunEve.Geography
 
 module System =     
     type SystemId = SystemId of int with

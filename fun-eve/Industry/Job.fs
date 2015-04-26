@@ -1,4 +1,4 @@
-namespace EveOnline.Industry
+namespace FunEve.Industry
 
 module Job = 
     

@@ -1,14 +1,14 @@
-﻿namespace EveOnline.MarketDomain
+﻿namespace FunEve.MarketDomain
 
 module Records = 
-    open EveOnline.ProductDomain.Types
-    open EveOnline.OreDomain.Types
-    open EveOnline.OreDomain.Records
-    open EveOnline.OreDomain.Ore
-    open EveOnline.IceDomain.Types
-    open EveOnline.IceDomain.Records
-    open EveOnline.IceDomain.Ice
-    open EveOnline.MarketDomain.Types
+    open FunEve.ProductDomain.Types
+    open FunEve.OreDomain.Types
+    open FunEve.OreDomain.Records
+    open FunEve.OreDomain.Ore
+    open FunEve.IceDomain.Types
+    open FunEve.IceDomain.Records
+    open FunEve.IceDomain.Ice
+    open FunEve.MarketDomain.Types
     open Microsoft.FSharp.Reflection   
         
     type MarketPrices =  {
@@ -25,8 +25,8 @@ module Records =
     }
 
 
-    open EveOnline.MarketDomain.Types
-    open EveOnline.MarketDomain.Providers
+    open FunEve.MarketDomain.Types
+    open FunEve.MarketDomain.Providers
 
     type QuickLookProvider = MarketOrder.QuickLookResult
     type SellOrderProvider = MarketOrder.QuickLookResult.Order

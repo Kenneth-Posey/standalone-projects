@@ -1,8 +1,8 @@
-﻿namespace EveOnline.ProductDomain
+﻿namespace FunEve.ProductDomain
 
 module Records = 
-    open EveOnline.ProductDomain.Types
-    open EveOnline.ProductDomain.UnionTypes
+    open FunEve.ProductDomain.Types
+    open FunEve.ProductDomain.UnionTypes
 
     type MineralData = {
         TypeId  : TypeId

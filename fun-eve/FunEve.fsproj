@@ -5,12 +5,12 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>d0baa48e-7842-457d-8cb4-b4f2069cbc63</ProjectGuid>
+    <ProjectGuid>{d0baa48e-7842-457d-8cb4-b4f2069cbc63}</ProjectGuid>
     <OutputType>Library</OutputType>
-    <RootNamespace>fun-eve</RootNamespace>
-    <AssemblyName>fun-eve</AssemblyName>
+    <RootNamespace>FunEve</RootNamespace>
+    <AssemblyName>FunEve</AssemblyName>
     <TargetFrameworkVersion>v4.5.3</TargetFrameworkVersion>
-    <Name>fun-eve</Name>
+    <Name>FunEve</Name>
     <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
     <RestorePackages>true</RestorePackages>
     <NuGetPackageImportStamp>6082aa05</NuGetPackageImportStamp>
@@ -114,6 +114,8 @@
     <None Include="README.md" />
     <Compile Include="ExampleDU.fs" />
     <Content Include="packages.config" />
+    <None Include="Scripts\load-references.fsx" />
+    <None Include="Scripts\load-project.fsx" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="EntityFramework">

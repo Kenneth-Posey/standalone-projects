@@ -1,9 +1,9 @@
-﻿namespace EveOnline.Interop
+﻿namespace FunEve.Interop
 
 module internal InternalInterop = 
-    open EveOnline.ProductDomain.Types
-    open EveOnline.MarketDomain
-    open EveOnline.DataDomain.Collections
+    open FunEve.ProductDomain.Types
+    open FunEve.MarketDomain
+    open FunEve.DataDomain.Collections
 
     type iMaterial = {
         material : Material
@@ -34,7 +34,7 @@ module internal InternalInterop =
     let MineralNames = name Minerals
     let IceProductNames = name IceProducts
 
-    let oreNameList = EveOnline.DataDomain.Collections.OreNameList
+    let oreNameList = FunEve.DataDomain.Collections.OreNameList
 
 
 module Data = 
@@ -43,7 +43,7 @@ module Data =
         static member TypeIds = [ ("", 0) ]
         static member Names = InternalInterop.OreNames
         static member OreNames = InternalInterop.oreNameList
-        static member Data = EveOnline.DataDomain.Collections.OreDataMap
+        static member Data = FunEve.DataDomain.Collections.OreDataMap
 
     type Ice () = 
         static member TypeIds = [ ("", 0) ]

@@ -1,20 +1,20 @@
-﻿namespace EveOnline.MarketDomain
+﻿namespace FunEve.MarketDomain
 
 module Market = 
-    open EveOnline.ProductDomain.Types
-    open EveOnline.ProductDomain.UnionTypes
-    open EveOnline.ProductDomain.Records
-    open EveOnline.ProductDomain.Product
-    open EveOnline.OreDomain.Types
-    open EveOnline.OreDomain.Records
-    open EveOnline.OreDomain.Ore
-    open EveOnline.IceDomain.Records
-    open EveOnline.IceDomain.Ice
-    open EveOnline.MarketDomain.Types
-    open EveOnline.MarketDomain.Records
-    open EveOnline.MarketDomain.Parser
-    open EveOnline.DataDomain.Collections
-    open EveOnline.Geography.System
+    open FunEve.ProductDomain.Types
+    open FunEve.ProductDomain.UnionTypes
+    open FunEve.ProductDomain.Records
+    open FunEve.ProductDomain.Product
+    open FunEve.OreDomain.Types
+    open FunEve.OreDomain.Records
+    open FunEve.OreDomain.Ore
+    open FunEve.IceDomain.Records
+    open FunEve.IceDomain.Ice
+    open FunEve.MarketDomain.Types
+    open FunEve.MarketDomain.Records
+    open FunEve.MarketDomain.Parser
+    open FunEve.DataDomain.Collections
+    open FunEve.Geography.System
 
     // functions for finding the typeid of a material type
     let IceTypeId x = IceTypeId (x) (IsNotCompressed)
@@ -185,7 +185,7 @@ module Market =
 
         
     // this should be cleaned up later. 3-30-2015
-    open EveOnline.DataDomain.Collections
+    open FunEve.DataDomain.Collections
     type MaterialNameId = {
         Name : Name
         Id : TypeId 

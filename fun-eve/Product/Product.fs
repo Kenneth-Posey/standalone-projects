@@ -1,9 +1,9 @@
-﻿namespace EveOnline.ProductDomain
+﻿namespace FunEve.ProductDomain
 
 module Product = 
-    open EveOnline.ProductDomain.Types
-    open EveOnline.ProductDomain.UnionTypes
-    open EveOnline.ProductDomain.Records
+    open FunEve.ProductDomain.Types
+    open FunEve.ProductDomain.UnionTypes
+    open FunEve.ProductDomain.Records
 
     let MineralTypeid x = 
         TypeId <| match x with

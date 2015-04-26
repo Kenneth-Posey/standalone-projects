@@ -1,10 +1,10 @@
-﻿namespace EveOnline.IceDomain
+﻿namespace FunEve.IceDomain
 
 module Ice = 
-    open EveOnline.ProductDomain.UnionTypes
-    open EveOnline.ProductDomain.Types
-    open EveOnline.IceDomain.Types
-    open EveOnline.IceDomain.Records
+    open FunEve.ProductDomain.UnionTypes
+    open FunEve.ProductDomain.Types
+    open FunEve.IceDomain.Types
+    open FunEve.IceDomain.Records
 
     // All ice has the same volume so as long as the type matches, we're good
     let RawIceVolume (y:Compressed) :Volume = 

@@ -1,9 +1,9 @@
-﻿namespace EveOnline.MarketDomain
+﻿namespace FunEve.MarketDomain
 
 module Parser = 
-    open EveOnline.Geography.System
-    open EveOnline.MarketDomain.Providers
-    open EveOnline.MarketDomain.Records
+    open FunEve.Geography.System
+    open FunEve.MarketDomain.Providers
+    open FunEve.MarketDomain.Records
     
     let SortBuyFunc (x:Order) (y:Order) =
         match x.Price <> y.Price with
@@ -89,7 +89,7 @@ module Parser =
     let loadUrl = Utility.UtilityFunctions.LoadUrl
     let composeUrl = Utility.UtilityFunctions.ComposeUrl
     let parse = ParseQuickLook
-    let baseUrl = (fun loc item -> EveOnline.MarketDomain.Providers.QuickLook + 
+    let baseUrl = (fun loc item -> FunEve.MarketDomain.Providers.QuickLook + 
                                    "?typeid=" + item + 
                                    "&usesystem=" + string (SystemId loc) )
 

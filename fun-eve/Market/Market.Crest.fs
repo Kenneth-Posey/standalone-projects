@@ -1,4 +1,4 @@
-﻿namespace EveOnline.MarketDomain
+﻿namespace FunEve.MarketDomain
 
 module Crest = 
     open System

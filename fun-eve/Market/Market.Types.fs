@@ -1,9 +1,9 @@
-﻿namespace EveOnline.MarketDomain
+﻿namespace FunEve.MarketDomain
 
 module Types = 
-    open EveOnline.OreDomain.Records
-    open EveOnline.IceDomain.Records
-    open EveOnline.ProductDomain.Records
+    open FunEve.OreDomain.Records
+    open FunEve.IceDomain.Records
+    open FunEve.ProductDomain.Records
 
 
     type RefinePrice = 
