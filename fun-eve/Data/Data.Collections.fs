@@ -78,7 +78,7 @@ module Collections =
         [
             for ore in OreTypeList do
                 for rarity in [ Common; Uncommon; Rare ] do
-                    for compressed in [ IsCompressed; IsNotCompressed ] do
+                    for compressed in [ IsCompressed; IsNotCompressed; ] do
                         yield (RawOreName ore).Value, (ore, rarity, compressed)
         ]
         |> Map.ofList

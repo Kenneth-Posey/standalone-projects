@@ -100,6 +100,10 @@
     <Compile Include="Ore\Ore.Records.fs" />
     <Compile Include="Ore\Ore.fs" />
     <Compile Include="Data\Data.Collections.fs" />
+    <None Include="Industry\blueprints.yaml" />
+    <Compile Include="Industry\Blueprint.Types.fs" />
+    <Compile Include="Industry\Blueprint.Records.fs" />
+    <Compile Include="Industry\Blueprint.Parser.fs" />
     <Compile Include="Industry\Blueprint.fs" />
     <Compile Include="Industry\Job.fs" />
     <Compile Include="Market\Market.Providers.fs" />
