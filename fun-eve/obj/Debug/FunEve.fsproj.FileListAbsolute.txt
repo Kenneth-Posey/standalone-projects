@@ -19,3 +19,5 @@ C:\Users\KennethPosey\Documents\GitHub\standalone-projects\fun-eve\bin\Debug\Sys
 C:\Users\KennethPosey\Documents\GitHub\standalone-projects\fun-eve\bin\Debug\pub.config
 C:\Users\KennethPosey\Documents\GitHub\standalone-projects\fun-eve\obj\Debug\FunEve.dll
 C:\Users\KennethPosey\Documents\GitHub\standalone-projects\fun-eve\obj\Debug\FunEve.pdb
+C:\Users\kposey\Documents\GitHub\standalone-projects\fun-eve\obj\Debug\FunEve.dll
+C:\Users\kposey\Documents\GitHub\standalone-projects\fun-eve\obj\Debug\FunEve.pdb

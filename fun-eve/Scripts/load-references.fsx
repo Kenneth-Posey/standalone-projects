@@ -14,3 +14,4 @@
 #r @"System.Numerics.dll"
 #r @"System.Xml.dll"
 #r @"System.Xml.Linq.dll"
+#r @"System.Data.Linq.dll"
