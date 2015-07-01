@@ -1,5 +1,5 @@
-﻿namespace FunEve.IndustryDomain
+﻿namespace FunEve.IndustryDomain.Blueprint
 
-module Blueprint = 
+module BlueprintType = 
     ()
 

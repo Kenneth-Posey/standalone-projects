@@ -20,8 +20,8 @@ module Providers =
         open Microsoft.FSharp.Data.TypeProviders
         open Microsoft.FSharp.Linq
 
-        type SqlDump = 
-            SqlDataConnection<"">
+        // type SqlDump = 
+        //     SqlDataConnection<"">
 
 
 
@@ -38,10 +38,10 @@ module Providers =
         open FSharp.Data
 
         type CrestAPI =
-            JsonProvider<"http://public-crest.eveonline.com/">
+            JsonProvider<"https://public-crest.eveonline.com/">
         
         type IndustryFacilities = 
-            JsonProvider<"http://public-crest.eveonline.com/industry/facilities/">
+            JsonProvider<"https://public-crest.eveonline.com/industry/facilities/">
 
 
     module MarketOrder = 

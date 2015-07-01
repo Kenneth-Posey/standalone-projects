@@ -4,7 +4,7 @@ module Records =
     open FunEve.ProductDomain.Types
     open FunEve.IndustryDomain.Blueprint.Types
 
-    type Blueprint = {
+    type BlueprintType = {
         TypeId: TypeId
         Activities: Activities list
         Limit : Limit
