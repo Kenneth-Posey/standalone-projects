@@ -154,10 +154,11 @@ module Market =
         
 
     // Ported from Market.Functions.CalculateEstimate in OOP code
-    let CalculateEstimate (rawList:string list) =
+    let CalculateEstimateOre (rawList:string list) =
         // MineralPrices is a member of a union case here, so this is 
         // essentially upcasting MineralPrices to RefinePrice
         let mineralPrices = RefinePrice.MineralPrices <| loadMineralPrices SellOrder Jita 
+
         let calcValue (item:string * int) = 
             let oreType, oreRarity, _ = OreDataMap.Item (fst item)                    
             let refineValue = GetRefineValue (GetYield (OreType oreType)) mineralPrices
@@ -166,6 +167,33 @@ module Market =
                 | Uncommon -> refineValue.Value * 1.05f
                 | Rare -> refineValue.Value * 1.1f
             |> fun x -> double x * (double (snd item))
+                    
+        let SumItems (items:(string * int) list) =
+            let rec SumRec (items:(string * int) list) (total:double) = 
+                match items.Length with 
+                // There's still items in the list to process
+                | length when length > 0 ->
+                    let value = calcValue items.Head
+                    SumRec items.Tail (total + value)
+                // In all other cases we want to just return a total
+                | _ -> total 
+
+            SumRec items 0.0
+
+        rawList 
+        |> List.map (fun x -> x.Split [|'\t'|])
+        |> List.map (fun x -> string(x.[0]), int(x.[1]))
+        |> SumItems 
+
+    let CalculateEstimateIce (rawList:string list) =
+        // MineralPrices is a member of a union case here, so this is 
+        // essentially upcasting MineralPrices to RefinePrice
+        let iceProductPrices = RefinePrice.IceProductPrices <| loadIceProductPrices SellOrder Jita
+
+        let calcValue (item:string * int) = 
+            let iceType, _ = IceDataMap.Item (fst item)                    
+            GetRefineValue (GetYield (IceType iceType)) iceProductPrices
+            |> fun x -> double x.Value * (double (snd item))
                     
         let SumItems (items:(string * int) list) =
             let rec SumRec (items:(string * int) list) (total:double) = 

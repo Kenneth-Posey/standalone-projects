@@ -7,6 +7,8 @@ module Collections =
     open FunEve.ProductDomain.Types
     open FunEve.OreDomain.Ore
     open FunEve.OreDomain.Records
+    open FunEve.IceDomain.Ice
+    open FunEve.IceDomain.Records
 
     open Microsoft.FSharp.Reflection
 
@@ -82,4 +84,12 @@ module Collections =
                         yield (RawOreName ore).Value, (ore, rarity, compressed)
         ]
         |> Map.ofList
-            
+    
+
+    let IceDataMap = 
+        [
+            for ice in IceTypeList do
+                for compressed in [ IsCompressed; IsNotCompressed ] do
+                    yield (RawIceName ice).Value, (ice, compressed)
+        ]
+        |> Map.ofList
