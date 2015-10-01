@@ -5,16 +5,9 @@ C:\Users\kennethposey\Documents\Github\standalone-projects\fun-eve\bin\Debug\Fun
 C:\Users\kennethposey\Documents\Github\standalone-projects\fun-eve\bin\Debug\FunEve.pdb
 C:\Users\kennethposey\Documents\Github\standalone-projects\fun-eve\bin\Debug\FSharp.Core.dll
 C:\Users\kennethposey\Documents\Github\standalone-projects\fun-eve\bin\Debug\FSharp.Data.dll
-C:\Users\kennethposey\Documents\Github\standalone-projects\fun-eve\bin\Debug\FSharp.Data.TypeProviders.dll
-C:\Users\kennethposey\Documents\Github\standalone-projects\fun-eve\bin\Debug\policy.2.3.FSharp.Core.dll
-C:\Users\kennethposey\Documents\Github\standalone-projects\fun-eve\bin\Debug\System.Data.SQLite.dll
-C:\Users\kennethposey\Documents\Github\standalone-projects\fun-eve\bin\Debug\System.Data.SQLite.EF6.dll
-C:\Users\kennethposey\Documents\Github\standalone-projects\fun-eve\bin\Debug\System.Data.SQLite.Linq.dll
 C:\Users\kennethposey\Documents\Github\standalone-projects\fun-eve\bin\Debug\FSharp.Core.xml
 C:\Users\kennethposey\Documents\Github\standalone-projects\fun-eve\bin\Debug\FSharp.Data.pdb
 C:\Users\kennethposey\Documents\Github\standalone-projects\fun-eve\bin\Debug\FSharp.Data.xml
-C:\Users\kennethposey\Documents\Github\standalone-projects\fun-eve\bin\Debug\System.Data.SQLite.xml
-C:\Users\kennethposey\Documents\Github\standalone-projects\fun-eve\bin\Debug\pub.config
 C:\Users\kennethposey\Documents\Github\standalone-projects\fun-eve\obj\Debug\FunEve.dll
 C:\Users\kennethposey\Documents\Github\standalone-projects\fun-eve\obj\Debug\FunEve.pdb
 C:\Users\Kenneth\Documents\Github\standalone-projects\fun-eve\bin\Debug\FunEve.dll.config

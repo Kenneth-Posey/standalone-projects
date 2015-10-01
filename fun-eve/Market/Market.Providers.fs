@@ -1,6 +1,7 @@
 ﻿namespace FunEve.MarketDomain
 
 module Providers = 
+    open FSharp.Data
 
     let TypeIdUrl   = "http://eve-files.com/chribba/typeid.txt"
     let QuickLook   = "http://api.eve-central.com/api/quicklook"
@@ -13,17 +14,13 @@ module Providers =
         setminQ : int
     }
 
-    module SqlDatabase = 
-        open System
-        open System.Data
-        open System.Data.Linq
-        open Microsoft.FSharp.Data.TypeProviders
+    // module SqlDatabase = 
+    //     open System
+    //     open System.Data
+    //     open System.Data.Linq
 
 
     module ApiFeed =
-        open FSharp.Data
-        open Microsoft.FSharp.Data.TypeProviders
-
         type CrestAPI =
             JsonProvider<"https://public-crest.eveonline.com/">
         
@@ -32,9 +29,6 @@ module Providers =
 
 
     module MarketOrder = 
-        open Microsoft.FSharp.Data.TypeProviders
-        open FSharp.Data
-
         type QuickLookResult = 
             XmlProvider<"""
                 <evec_api version="2.0" method="quicklook">
