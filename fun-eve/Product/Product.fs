@@ -1,7 +1,7 @@
 ﻿namespace FunEve.ProductDomain
+open FunEve.Base.Types
 
 module Product = 
-    open FunEve.ProductDomain.Types
     open FunEve.ProductDomain.UnionTypes
     open FunEve.ProductDomain.Records
 

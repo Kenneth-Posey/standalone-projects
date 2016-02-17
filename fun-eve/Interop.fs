@@ -1,7 +1,7 @@
 ﻿namespace FunEve.Interop
 
 module internal InternalInterop = 
-    open FunEve.ProductDomain.Types
+    open FunEve.Base.Types
     open FunEve.MarketDomain
     open FunEve.DataDomain.Collections
 

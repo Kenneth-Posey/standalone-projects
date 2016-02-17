@@ -1,4 +1,5 @@
 ﻿namespace FunEve.OreDomain
+open FunEve.Base.Types
 
 module Ore = 
     open FunEve.ProductDomain.Types

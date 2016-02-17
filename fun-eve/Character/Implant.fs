@@ -1,5 +1,5 @@
 ﻿namespace FunEve.CharacterDomain
-open FunEve.ProductDomain.Types
+open FunEve.Base.Types
 
 module Implant = 
     

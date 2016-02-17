@@ -1,6 +1,7 @@
 ﻿namespace FunEve.MarketDomain
 
 module Market = 
+    open FunEve.Base.Types
     open FunEve.ProductDomain.Types
     open FunEve.ProductDomain.UnionTypes
     open FunEve.ProductDomain.Records

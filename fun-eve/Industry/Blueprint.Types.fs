@@ -1,7 +1,7 @@
 namespace FunEve.IndustryDomain.Blueprint
 
 module Types = 
-    open FunEve.ProductDomain.Types
+    open FunEve.Base.Types
         
     type Time = Time of int with 
         member this.Value = 

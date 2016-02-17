@@ -1,4 +1,5 @@
 ﻿namespace FunEve.IceDomain
+open FunEve.Base.Types
 
 module Ice = 
     open FunEve.ProductDomain.UnionTypes

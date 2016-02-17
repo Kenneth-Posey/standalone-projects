@@ -1,8 +1,8 @@
 ﻿namespace FunEve.ProductDomain
+open FunEve.Base.Types
+open FunEve.ProductDomain.UnionTypes
 
 module Records = 
-    open FunEve.ProductDomain.Types
-    open FunEve.ProductDomain.UnionTypes
 
     type MineralData = {
         TypeId  : TypeId

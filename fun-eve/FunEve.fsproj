@@ -70,6 +70,7 @@
     <Error Condition="!Exists('..\..\eve-contracts\evetool\EVETool\packages\System.Data.SQLite.Core.1.0.99.0\build\net451\System.Data.SQLite.Core.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\..\eve-contracts\evetool\EVETool\packages\System.Data.SQLite.Core.1.0.99.0\build\net451\System.Data.SQLite.Core.targets'))" />
   </Target>
   <ItemGroup>
+    <Compile Include="Base\Base.Types.fs" />
     <Compile Include="Utility\DllImports.fs" />
     <Compile Include="Utility\ArrayFunctions.fs" />
     <Compile Include="Utility\Math.fs" />
@@ -96,7 +97,6 @@
     <Compile Include="Data\Data.Character.fs" />
     <Compile Include="Data\Data.Skills.fs" />
     <Compile Include="Data\Data.Implants.fs" />
-    <None Include="Industry\blueprints.yaml" />
     <Compile Include="Industry\Blueprint.Types.fs" />
     <Compile Include="Industry\Blueprint.Records.fs" />
     <Compile Include="Industry\Blueprint.Parser.fs" />

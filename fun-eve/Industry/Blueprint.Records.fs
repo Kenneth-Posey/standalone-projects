@@ -1,7 +1,7 @@
 namespace FunEve.IndustryDomain.Blueprint
 
 module Records = 
-    open FunEve.ProductDomain.Types
+    open FunEve.Base.Types
     open FunEve.IndustryDomain.Blueprint.Types
 
     type BlueprintType = {

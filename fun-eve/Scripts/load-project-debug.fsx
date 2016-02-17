@@ -1,7 +1,8 @@
 // Warning: generated file; your changes could be lost when a new file is generated.
 #I __SOURCE_DIRECTORY__
 #load "load-references-debug.fsx"
-#load "../Utility/DllImports.fs"
+#load "../Base/Base.Types.fs"
+      "../Utility/DllImports.fs"
       "../Utility/ArrayFunctions.fs"
       "../Utility/Math.fs"
       "../Utility/Format.fs"
