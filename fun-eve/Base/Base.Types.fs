@@ -26,4 +26,11 @@ module Types =
     type Multiplier = Multiplier of single with
         member this.Value =     
             this |> (fun (Multiplier x) -> x)
-        
+                
+    type Time = Time of int with 
+        member this.Value = 
+            this |> (fun (Time x) -> x)
+                
+    type Level = Level of int with
+        member this.Value = 
+            this |> (fun (Level x) -> x)

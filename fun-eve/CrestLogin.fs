@@ -1,31 +1,27 @@
 ﻿
-namespace Test
+namespace FunEve.Crest
 
 open System
+open System.Text
 open FSharp
 open FSharp.Data
 
-module test = 
-    type CrestProvider = JsonProvider<"https://public-crest.eveonline.com/">
-    // Download the content of a web site
-    let content = Http.RequestString("https://public-crest.eveonline.com/")
-    let crestMain = CrestProvider.Parse content
+// Turns out that they don't require authentication for market
+// so we're not going to pursue this path for a while
+module AuthManager = 
+    let HOST = "https://login.eveonline.com"
+
+    let EncodeIdentifier (clientId:string) (clientSecret:string) = 
+        let textBytes = Encoding.UTF8.GetBytes(clientId + ":" + clientSecret)
+        Convert.ToBase64String(textBytes)
+
+    let ConvertAuthLink clientId redirectUri state scopes =     
+        HOST 
+        + "/oauth/authorize/?response_type=code&redirect_uri=" + redirectUri
+        + "&client_id=" + clientId 
+        + "&scope=" + scopes 
+        + "&state=" + state        
+
+    let Authenticate encodedKey authCode = 
         
-    type MarketProvider = JsonProvider<"https://public-crest.eveonline.com/market/prices/">
-    let market = Http.RequestString("https://public-crest.eveonline.com/market/prices/")
-    let marketMain = MarketProvider.Parse market
-    let itemTypes = marketMain.Items.[0]
-
-
-    
-    
-    let t = crestMain.Regions.Href
-
-    
-
-    // Download web site asynchronously
-    // async { let! html = Http.AsyncRequestString("http://tomasp.net")
-    //         printfn "%d" html.Length }
-    // |> Async.Start
-
-    
+        ()

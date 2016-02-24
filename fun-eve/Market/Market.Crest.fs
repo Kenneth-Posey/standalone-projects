@@ -2,7 +2,7 @@
 
 module Crest = 
     open System
-    open System.Net
+    open FSharp.Data
 
     module PathsSisi = 
         let PublicEndpoint = "http://public-crest-sisi.testeveonline.com/"
@@ -16,26 +16,18 @@ module Crest =
         let ImageServer = "https://image.eveonline.com/"
         let OAuthEndpoint = "https://login.eveonline.com/oauth"
     
-    type CrestConnection (username:string, password:string) = 
-        let headers = new WebHeaderCollection ()       
-        let client = new WebClient ()
-        let longauthcode = ""
-        let authtoken = ""
-
-        do 
-            let marketUrl = "https://crest-tq.eveonline.com/market/"
-            let hval = HttpRequestHeader.Authorization.ToString() + " : Bearer " + authtoken
-            headers.Add hval
-
-
-        interface IDisposable with 
-            member this.Dispose () = 
-                this.Client.Dispose ()                
-
-                
-        member this.Client = client
+    module test = 
+        type CrestProvider = JsonProvider<"https://public-crest.eveonline.com/">
+        // Download the content of a web site
+        let content = Http.RequestString("https://public-crest.eveonline.com/")
+        let crestMain = CrestProvider.Parse content
         
+        type MarketProvider = JsonProvider<"https://public-crest.eveonline.com/market/prices/">
+        let market = Http.RequestString("https://public-crest.eveonline.com/market/prices/")
+        let marketMain = MarketProvider.Parse market
+        let itemTypes = marketMain.Items.[0]
 
 
-
-
+    
+    
+        let t = crestMain.Regions.Href

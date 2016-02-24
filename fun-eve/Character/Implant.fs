@@ -16,9 +16,22 @@ module Implant =
     | Slot9
     | Slot10
 
+    type EffectStrength = EffectStrength of single with
+        member this.Value = 
+            this |> (fun (EffectStrength x) -> x)
+
+    type Attribute = {
+        // Name : Name
+        TypeId : TypeId
+        // Attributes : Attribute list
+        Effects : ( EffectStrength * Attribute ) list
+    }
+
     type Implant = {
         Name : Name
         Slot : Slot
-
+        TypeId : TypeId
+        Multiplier : Multiplier
+        Attributes : Attribute list
     }
 

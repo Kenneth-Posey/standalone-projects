@@ -7,5 +7,8 @@ module Records =
     type BlueprintType = {
         TypeId: TypeId
         Activities: Activities list
-        Limit : Limit
+        MELevel : MaterialEfficiency
+        TELevel : TimeEfficiency
+        CopyType : CopyType
+        RunLimit : RunLimit
     }

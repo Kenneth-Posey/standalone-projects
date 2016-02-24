@@ -2,20 +2,12 @@ namespace FunEve.IndustryDomain.Blueprint
 
 module Types = 
     open FunEve.Base.Types
-        
-    type Time = Time of int with 
-        member this.Value = 
-            this |> (fun (Time x) -> x)
 
     type Probability = Probability of single with
         member this.Value = 
             this |> (fun (Probability x) -> x)
-
-    type SkillLevel = SkillLevel of int with
-        member this.Value = 
-            this |> (fun (SkillLevel x) -> x)
-
-    type ReqSkill = ReqSkill of SkillLevel * TypeId with
+            
+    type ReqSkill = ReqSkill of Level * TypeId with
         member this.Value = 
             this |> (fun (ReqSkill (s, t)) -> s, t)
                         
@@ -31,9 +23,18 @@ module Types =
         member this.Value = 
             this |> (fun (MfgSkill x) -> x)
     
-    type Limit = Limit of int with
+    type RunLimit = RunLimit of int with
         member this.Value =
-            this |> (fun (Limit x) -> x)
+            this |> (fun (RunLimit x) -> x)
+            
+    type MaterialEfficiency = MaterialEfficiency of int with
+        member this.Value =
+            this |> (fun (MaterialEfficiency x) -> x)
+
+    type TimeEfficiency = TimeEfficiency of int with
+        member this.Value =
+            this |> (fun (TimeEfficiency x) -> x)
+
                         
     type Activities = 
     | Copying of Time
@@ -42,3 +43,8 @@ module Types =
     | Manufacturing of Time * MfgMaterial * MfgProduct * MfgSkill
     | Invention of Time * MfgMaterial * MfgProduct * MfgSkill
 
+    type CopyType = 
+    | Original
+    | Copy
+    | InventedT2
+    | InventedT3
