@@ -2,7 +2,6 @@
 
 module Providers = 
     open FSharp.Data
-
     let TypeIdUrl   = "http://eve-files.com/chribba/typeid.txt"
     let QuickLook   = "http://api.eve-central.com/api/quicklook"
 
@@ -22,11 +21,7 @@ module Providers =
 
     module ApiFeed =
         type CrestAPI =
-            JsonProvider<"https://public-crest.eveonline.com/">
-        
-        type IndustryFacilities = 
-            JsonProvider<"https://public-crest.eveonline.com/industry/facilities/">
-
+            JsonProvider<"https://crest-tq.eveonline.com/">
 
     module MarketOrder = 
         type QuickLookResult = 
