@@ -7,21 +7,16 @@ open System.Text
 
 
 module main = 
-    type ContractListing = FunEve.Contracts.ContractTypes.ContractListing
-    type ContractRow = FunEve.Contracts.ContractTypes.ContractRow
+    open FunEve.Contracts
+    type ContractListing = FunEve.Contracts.Contracts.ContractListing
+    type ContractRow = FunEve.Contracts.Contracts.ContractRow
 
     let runApi () = 
-        let keyId = "102722"
-        let vCode = "yL7HSnBJdkm1cQbWYtMWav8DmcVTSlArmpvFWtQ3RvyabKLeKX5MNIHCmYHbMzOz"
-        let xmlUrl = sprintf @"https://api.eveonline.com/char/Contracts.xml.aspx?keyID=%s&vCode=%s" keyId vCode 
-        let request = WebRequest.Create(new Uri(xmlUrl))
-        use resp = request.GetResponse()         
-        use responseStream = resp.GetResponseStream() 
-        use responseReader = new IO.StreamReader(responseStream) 
-        let contents = responseReader.ReadToEnd()
-        let rrr = ContractListing.Parse(contents)
+        let keyId = FunEve.ApiKeys.mrpleco.keyID
+        let vCode = FunEve.ApiKeys.mrpleco.vCode
         
-        rrr.Result.Rowset.Rows
+        Contracts.LoadContractListing keyId vCode
+        |> fun rowListing -> rowListing.Result.Rowset.Rows
         |> List.ofArray
         |> List.map (fun x -> string x)
                 

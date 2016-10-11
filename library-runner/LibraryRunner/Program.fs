@@ -12,7 +12,7 @@ let main argv =
     let rows = FunEve.Main.main.runApi ()
     
     rows
-    |> List.map (fun x -> ContractTypes.ContractRow.Parse x)
+    |> List.map (fun x -> Contracts.ContractRow.Parse x)
     |> List.iter (fun x -> Console.WriteLine (string x.Status))
 
     0 // return an integer exit code

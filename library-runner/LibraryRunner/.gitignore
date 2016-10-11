@@ -2,11 +2,6 @@
 *.suo
 *.user
 *.sln.docstates
-
-# Passwords / keys
-
-AuthKey.fs
-
 # Build results
 
 [Dd]ebug/

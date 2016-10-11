@@ -1,9 +1,10 @@
 namespace FunEve.Contracts
 
-module ContractTypes = 
+module Contracts = 
     open System
     open FSharp.Data
-
+    open System.Net
+    
     type ContractListing = XmlProvider<"""<?xml version='1.0' encoding='UTF-8'?>
         <eveapi version="2">
           <currentTime>2016-10-10 05:45:29</currentTime>
@@ -29,3 +30,15 @@ module ContractTypes =
         """>
 
     type ContractRow = XmlProvider<"""<row contractID="109299255" issuerID="1590527270" issuerCorpID="98142371" assigneeID="0" acceptorID="94595444" startStationID="60003679" endStationID="60003760" type="Courier" status="Completed" title="Check the contract search; we're always shipping!" forCorp="1" availability="Public" dateIssued="2016-10-05 01:37:09" dateExpired="2016-10-19 01:37:09" dateAccepted="2016-10-05 02:07:13" numDays="1" dateCompleted="2016-10-05 04:03:14" price="0.00" reward="24500000.00" collateral="1750000000.00" buyout="0.00" volume="200000" />""">
+
+    let LoadContractListing keyId vCode =         
+        sprintf @"https://api.eveonline.com/char/Contracts.xml.aspx?keyID=%s&vCode=%s" keyId vCode 
+        |> fun xmlUrl -> WebRequest.Create (new Uri(xmlUrl))
+        |> fun request -> 
+            use resp = request.GetResponse ()         
+            use responseStream = resp.GetResponseStream () 
+            use responseReader = new IO.StreamReader (responseStream) 
+            responseReader.ReadToEnd ()
+        |> fun contents -> ContractListing.Parse contents
+
+        
