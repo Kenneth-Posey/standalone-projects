@@ -45,9 +45,6 @@
     <Reference Include="FSharp.Data.TypeProviders">
       <HintPath>..\..\..\eve-contracts\evetool\EVETool\packages\FSharp.Data.TypeProviders.5.0.0.2\lib\net40\FSharp.Data.TypeProviders.dll</HintPath>
     </Reference>
-    <Reference Include="FunEve">
-      <HintPath>..\..\fun-eve\bin\Debug\FunEve.dll</HintPath>
-    </Reference>
     <Reference Include="mscorlib" />
     <Reference Include="FSharp.Core, Version=$(TargetFSharpCoreVersion), Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
       <Private>True</Private>
@@ -63,6 +60,13 @@
     <None Include="App.config" />
     <None Include="Scripts\load-references-debug.fsx" />
     <None Include="Scripts\load-project-debug.fsx" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\fun-eve\FunEve.fsproj">
+      <Name>FunEve</Name>
+      <Project>{d0baa48e-7842-457d-8cb4-b4f2069cbc63}</Project>
+      <Private>False</Private>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <MinimumVisualStudioVersion Condition="'$(MinimumVisualStudioVersion)' == ''">11</MinimumVisualStudioVersion>

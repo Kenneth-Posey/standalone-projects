@@ -1,0 +1,10 @@
+lib/debug
+lib/release
+Debug
+*.suo
+*.user
+*.pdb
+obj
+bin
+*bin*
+*FileListAbsolute.txt
