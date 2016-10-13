@@ -5,7 +5,7 @@ module Contracts =
     open FSharp.Data
     open System.Net
     
-    type ContractListing = XmlProvider<"""<?xml version='1.0' encoding='UTF-8'?>
+    type XmlContractListing = XmlProvider<"""<?xml version='1.0' encoding='UTF-8'?>
         <eveapi version="2">
           <currentTime>2016-10-10 05:45:29</currentTime>
           <result>
@@ -29,16 +29,60 @@ module Contracts =
         </eveapi>
         """>
 
-    type ContractRow = XmlProvider<"""<row contractID="109299255" issuerID="1590527270" issuerCorpID="98142371" assigneeID="0" acceptorID="94595444" startStationID="60003679" endStationID="60003760" type="Courier" status="Completed" title="Check the contract search; we're always shipping!" forCorp="1" availability="Public" dateIssued="2016-10-05 01:37:09" dateExpired="2016-10-19 01:37:09" dateAccepted="2016-10-05 02:07:13" numDays="1" dateCompleted="2016-10-05 04:03:14" price="0.00" reward="24500000.00" collateral="1750000000.00" buyout="0.00" volume="200000" />""">
+    type XmlContractRow = XmlProvider<"""<row contractID="109299255" issuerID="1590527270" issuerCorpID="98142371" assigneeID="0" acceptorID="94595444" startStationID="60003679" endStationID="60003760" type="Courier" status="Completed" title="Check the contract search; we're always shipping!" forCorp="1" availability="Public" dateIssued="2016-10-05 01:37:09" dateExpired="2016-10-19 01:37:09" dateAccepted="2016-10-05 02:07:13" numDays="1" dateCompleted="2016-10-05 04:03:14" price="0.00" reward="24500000.00" collateral="1750000000.00" buyout="0.00" volume="200000" />""">
 
-    let LoadContractListing keyId vCode =         
-        sprintf @"https://api.eveonline.com/char/Contracts.xml.aspx?keyID=%s&vCode=%s" keyId vCode 
+    type ApiContractType = 
+    | Item
+    | Auction
+    | Courier
+
+    type ApiQueryPerson = 
+    | Character
+    | Corp
+
+    type Contract = {
+        Status : string
+        Availability : string
+        IssueDate : DateTime
+        CompleteDate : DateTime
+        AcceptorId : int
+    }
+
+
+    let contractUrlBase apiPerson = 
+        match apiPerson with
+        | ApiQueryPerson.Character -> @"https://api.eveonline.com/char/Contracts.xml.aspx"
+        | ApiQueryPerson.Corp -> @"https://api.eveonline.com/corp/Contracts.xml.aspx"
+        
+
+    let formApiUrl keyId vCode apiPerson = 
+        contractUrlBase apiPerson
+        |> fun url -> sprintf @"%s?keyID=%s&vCode=%s" url keyId vCode             
+
+    let LoadContractListing keyId vCode apiPerson =                 
+        formApiUrl keyId vCode apiPerson
         |> fun xmlUrl -> WebRequest.Create (new Uri(xmlUrl))
         |> fun request -> 
             use resp = request.GetResponse ()         
             use responseStream = resp.GetResponseStream () 
             use responseReader = new IO.StreamReader (responseStream) 
             responseReader.ReadToEnd ()
-        |> fun contents -> ContractListing.Parse contents
-
+        |> fun contents -> XmlContractListing.Parse contents
+        |> fun response -> 
+            [
+                for Row in response.Result.Rowset.Rows do
+                    let row = Row
+                    yield {
+                        Status = row.Status
+                        Availability = row.Availability
+                        IssueDate = row.DateIssued
+                        CompleteDate = row.DateCompleted
+                        AcceptorId = row.AcceptorId
+                    }
+            ]
         
+    let LoadCorpContracts keyId vCode = 
+        LoadContractListing keyId vCode Corp
+
+    let LoadCharacterContracts keyId vCode =
+        LoadContractListing keyId vCode Character

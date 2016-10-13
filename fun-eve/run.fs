@@ -8,17 +8,14 @@ open System.Text
 
 module main = 
     open FunEve.Contracts
-    type ContractListing = FunEve.Contracts.Contracts.ContractListing
-    type ContractRow = FunEve.Contracts.Contracts.ContractRow
+    type ContractListing = FunEve.Contracts.Contracts.XmlContractListing
+    type ContractRow = FunEve.Contracts.Contracts.XmlContractRow
 
     let runApi () = 
-        let keyId = FunEve.ApiKeys.mrpleco.keyID
-        let vCode = FunEve.ApiKeys.mrpleco.vCode
+        let keyId = FunEve.ApiKeys.PMGE.keyId
+        let vCode = FunEve.ApiKeys.PMGE.vCode
         
-        Contracts.LoadContractListing keyId vCode
-        |> fun rowListing -> rowListing.Result.Rowset.Rows
-        |> List.ofArray
-        |> List.map (fun x -> string x)
+        Contracts.LoadCorpContracts keyId vCode
                 
     let runCrest () = 
         let url = @"https://crest-tq.eveonline.com/"    
@@ -40,6 +37,7 @@ module main =
 module mainEveLib =     
     open eZet.EveLib
     let runEveLib () = 
+        // these are invalid now
         let accessToken = @"7q5-F9zUeZ6Orn-L8VHpH7s82nz3UkoYZbaqvDCvnuM4V8Q6xJzLgV_NDoexn08v5EDPJFHXp6WF1PHcTL-ZxQ2"
         let refreshToken = @"NmdnNMsujSf4nku2IAbhro_RN0BocfnYuB4bRWZFgdnBvE4E4OZKzF9IWFepmlx30"
         let encodedKey = @"MXRJSWMzaVlSMjNGWmNTN0t1eGh6cXVGZFFxM1BqekRUVGpaamZIdQ=="

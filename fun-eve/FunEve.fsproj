@@ -113,14 +113,14 @@
     <Compile Include="Interop.fs" />
     <Compile Include="run.fs" />
     <Content Include="app.config" />
-    <Compile Include="ExampleDU.fs" />
     <Content Include="packages.config" />
+    <None Include="README.md" />
+    <Compile Include="ExampleDU.fs" />
+    <None Include=".gitignore" />
     <None Include="Scripts\load-references.fsx" />
     <None Include="Scripts\load-project.fsx" />
     <None Include="Scripts\load-references-debug.fsx" />
     <None Include="Scripts\load-project-debug.fsx" />
-    <None Include="README.md" />
-    <None Include=".gitignore" />
     <Compile Include="DataCache.fs" />
   </ItemGroup>
   <ItemGroup>
