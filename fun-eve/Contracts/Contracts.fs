@@ -133,8 +133,9 @@ module Contracts =
             [
                 for row in response.Result.Rowset.Rows do
                     let dateCompleted = 
-                        match row.Status with
-                        | Completed -> Some row.DateCompleted
+                        match row.Status, row.Type with
+                        | Completed, Courier -> Some row.DateCompleted
+                        | Completed, Item -> Some row.DateIssued
                         | _ -> None
 
                     yield {
