@@ -8,8 +8,8 @@ open System.Text
 
 module main = 
     open FunEve.Contracts
-    type ContractListing = FunEve.Contracts.Contracts.XmlContractListing
-    type ContractRow = FunEve.Contracts.Contracts.XmlContractRow
+    type ContractListing = FunEve.Contracts.Contracts.XmlCourierContractListing
+    type ContractRow = FunEve.Contracts.Contracts.XmlCourierContractRow
 
     let runApi () = 
         let keyId = FunEve.ApiKeys.PMGE.keyId
