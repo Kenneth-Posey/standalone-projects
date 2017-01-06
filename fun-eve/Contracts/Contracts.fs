@@ -63,18 +63,51 @@ module Contracts =
     | Auction
     | Courier
 
+    type ApiContractStatus =
+    | Open 
+    | InProgress 
+    | Completed
+    | Failed 
+
     type ApiQueryPerson = 
     | Character
     | Corp
 
     type Contract = {
-        Status : string
+        Status : ApiContractStatus
         Availability : string
         IssueDate : DateTime
         CompleteDate : DateTime option
         AcceptorId : int
+        ContractType : ApiContractType
     }
     
+    let (|Item|Auction|Courier|) (cText:string) = 
+        if cText = "ItemExchange" then Item
+        else if cText = "Courier" then Courier
+        else Auction
+        
+    let (|Open|InProgress|Completed|Failed|) (cText:string) = 
+        if cText = "Open" then Open
+        else if cText = "InProgress" then InProgress
+        else if cText = "Complete" then Completed
+        else Failed
+
+    let matchContractType cText = 
+        match cText with
+        | Item -> Item
+        | Auction -> Auction
+        | Courier -> Courier
+                
+    let matchContractStatus cText = 
+        match cText with
+        | Open -> Open
+        | InProgress -> InProgress
+        | Completed -> Completed
+        | Failed -> Failed
+        
+        
+
     let contractUrlBase apiPerson = 
         match apiPerson with
         | ApiQueryPerson.Character -> @"https://api.eveonline.com/char/Contracts.xml.aspx"
@@ -101,15 +134,16 @@ module Contracts =
                 for row in response.Result.Rowset.Rows do
                     let dateCompleted = 
                         match row.Status with
-                        | x when x = "Completed" -> Some row.DateCompleted
-                        | x -> None
-                                            
+                        | Completed -> Some row.DateCompleted
+                        | _ -> None
+
                     yield {
-                        Status = row.Status
+                        Status = matchContractStatus row.Status
                         Availability = row.Availability
                         IssueDate = row.DateIssued
                         CompleteDate = dateCompleted
                         AcceptorId = row.AcceptorId
+                        ContractType = matchContractType row.Type
                     }
                      
             ]
