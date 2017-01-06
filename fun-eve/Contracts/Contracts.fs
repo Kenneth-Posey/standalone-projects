@@ -90,7 +90,7 @@ module Contracts =
     let (|Open|InProgress|Completed|Failed|) (cText:string) = 
         if cText = "Open" then Open
         else if cText = "InProgress" then InProgress
-        else if cText = "Complete" then Completed
+        else if cText = "Completed" then Completed
         else Failed
 
     let matchContractType cText = 
