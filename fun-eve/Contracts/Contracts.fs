@@ -135,7 +135,7 @@ module Contracts =
                     let dateCompleted = 
                         match row.Status, row.Type with
                         | Completed, Courier -> Some row.DateCompleted
-                        | Completed, Item -> Some row.DateIssued
+                        | Completed, Item -> Some row.DateAccepted
                         | _ -> None
 
                     yield {
