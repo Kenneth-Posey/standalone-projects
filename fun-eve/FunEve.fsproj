@@ -107,6 +107,7 @@
     <Compile Include="Market\Market.Parser.fs" />
     <Compile Include="Market\Market.Crest.fs" />
     <Compile Include="Market\Market.fs" />
+    <Compile Include="Contracts\Contracts.Constants.fs" />
     <Compile Include="Contracts\Contracts.fs" />
     <Compile Include="AuthKey.fs" />
     <Compile Include="CrestLogin.fs" />
@@ -124,52 +125,9 @@
     <Compile Include="DataCache.fs" />
   </ItemGroup>
   <ItemGroup>
-    <Reference Include="EveLib">
-      <HintPath>..\..\CopyPaste\CopyPaste\packages\eZet.EveLib.3.0.0.0\lib\net45\EveLib.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="EveLib.Core">
-      <HintPath>..\..\CopyPaste\CopyPaste\packages\eZet.EveLib.Core.3.0.8\lib\net45\EveLib.Core.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="EveLib.Element43">
-      <HintPath>..\..\CopyPaste\CopyPaste\packages\eZet.EveLib.Element43.3.0.0\lib\net45\EveLib.Element43.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="EveLib.EveAuth">
-      <HintPath>..\..\CopyPaste\CopyPaste\packages\eZet.EveLib.EveAuth.3.0.1.0\lib\net45\EveLib.EveAuth.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="EveLib.EveCentral">
-      <HintPath>..\..\CopyPaste\CopyPaste\packages\eZet.EveLib.EveCentral.3.0.0\lib\net45\EveLib.EveCentral.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="EveLib.EveCrest">
-      <HintPath>..\..\CopyPaste\CopyPaste\packages\eZet.EveLib.EveCrest.3.4.3\lib\net45\EveLib.EveCrest.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="EveLib.EveMarketData">
-      <HintPath>..\..\CopyPaste\CopyPaste\packages\eZet.EveLib.EveMarketData.3.0.0\lib\net45\EveLib.EveMarketData.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="EveLib.EveWho">
-      <HintPath>..\..\CopyPaste\CopyPaste\packages\eZet.EveLib.EveWho.3.1.0.0\lib\net45\EveLib.EveWho.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="EveLib.EveXml">
-      <HintPath>..\..\CopyPaste\CopyPaste\packages\eZet.EveLib.EveXml.3.0.8\lib\net45\EveLib.EveXml.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="EveLib.StaticData">
-      <HintPath>..\..\CopyPaste\CopyPaste\packages\eZet.EveLib.StaticData.3.0.0\lib\net45\EveLib.StaticData.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="EveLib.ZKillboard">
-      <HintPath>..\..\CopyPaste\CopyPaste\packages\eZet.EveLib.ZKillboard.3.0.4\lib\net45\EveLib.ZKillboard.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="FSharp.Data">
-      <HintPath>..\..\eve-contracts\evetool\EVETool\packages\FSharp.Data.2.2.5\lib\net40\FSharp.Data.dll</HintPath>
+      <HintPath>..\..\eve-contracts\evetool\EVETool\packages\FSharp.Data.2.3.2\lib\net40\FSharp.Data.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="FSharp.Data.DesignTime">
       <HintPath>..\..\eve-contracts\evetool\EVETool\packages\FSharp.Data.2.2.5\lib\net40\FSharp.Data.DesignTime.dll</HintPath>
@@ -179,23 +137,10 @@
     </Reference>
     <Reference Include="mscorlib" />
     <Reference Include="Newtonsoft.Json">
-      <HintPath>..\..\CopyPaste\CopyPaste\packages\Newtonsoft.Json.8.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Nito.AsyncEx">
-      <HintPath>..\..\CopyPaste\CopyPaste\packages\Nito.AsyncEx.3.0.1\lib\net45\Nito.AsyncEx.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Nito.AsyncEx.Concurrent">
-      <HintPath>..\..\CopyPaste\CopyPaste\packages\Nito.AsyncEx.3.0.1\lib\net45\Nito.AsyncEx.Concurrent.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Nito.AsyncEx.Enlightenment">
-      <HintPath>..\..\CopyPaste\CopyPaste\packages\Nito.AsyncEx.3.0.1\lib\net45\Nito.AsyncEx.Enlightenment.dll</HintPath>
+      <HintPath>..\..\eve-contracts\evetool\EVETool\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
-    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.Linq" />
     <Reference Include="System.Numerics" />
