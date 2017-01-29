@@ -113,16 +113,12 @@
     <Compile Include="CrestLogin.fs" />
     <Compile Include="Interop.fs" />
     <Compile Include="run.fs" />
+    <Compile Include="ExampleDU.fs" />
+    <Compile Include="DataCache.fs" />
+    <None Include="README.md" />
     <Content Include="app.config" />
     <Content Include="packages.config" />
-    <None Include="README.md" />
-    <Compile Include="ExampleDU.fs" />
     <None Include=".gitignore" />
-    <None Include="Scripts\load-references.fsx" />
-    <None Include="Scripts\load-project.fsx" />
-    <None Include="Scripts\load-references-debug.fsx" />
-    <None Include="Scripts\load-project-debug.fsx" />
-    <Compile Include="DataCache.fs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="FSharp.Data">
