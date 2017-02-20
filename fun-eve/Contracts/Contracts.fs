@@ -3,6 +3,7 @@ namespace FunEve.Contracts
 open System
 open FSharp.Data
 open System.Net
+open FunEve.Utility
 
 module Contracts =     
     type CourierContractListing = XmlProvider<Constants.CourierContractListing>
@@ -72,15 +73,7 @@ module Contracts =
     let LoadContractListing keyId vCode apiPerson =                 
         formApiUrl keyId vCode apiPerson
         |> fun xmlUrl -> 
-            WebRequest.Create (new Uri(xmlUrl))
-        |> fun request -> 
-            try
-                use resp = request.GetResponse ()         
-                use responseStream = resp.GetResponseStream () 
-                use responseReader = new IO.StreamReader (responseStream) 
-                responseReader.ReadToEnd ()
-            with 
-            | _ -> Constants.EmptyContractResult // return empty result for exceptions
+            HttpTools.loadWithEmptyResponse xmlUrl Constants.EmptyContractResult
         |> fun contents -> 
             CourierContractListing.Parse contents
         |> fun response -> 
@@ -99,8 +92,7 @@ module Contracts =
                         CompleteDate = dateCompleted
                         AcceptorId = row.AcceptorId
                         ContractType = matchContractType row.Type
-                    }
-                     
+                    }                     
             ]
         
     let LoadCorpContracts keyId vCode = 

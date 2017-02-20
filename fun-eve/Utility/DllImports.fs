@@ -1,4 +1,4 @@
-﻿namespace WindowsInterop
+﻿namespace FunEve.Utility
 
 module DllImports = 
     open System
@@ -32,7 +32,7 @@ module DllImports =
         extern int16 GetKeyState(int key)
 
     module WindowControl = 
-        type HookProc = delegate of ( int * int * IntPtr ) -> int
+        type HookProc = delegate of int * int * IntPtr -> int
         [<DllImport( "user32.dll" , CharSet = CharSet.Auto
                                   , CallingConvention = CallingConvention.StdCall
                                   , SetLastError = true )>]

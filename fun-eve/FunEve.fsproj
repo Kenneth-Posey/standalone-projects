@@ -75,10 +75,18 @@
     <Compile Include="Utility\Format.fs" />
     <Compile Include="Utility\Utility.fs" />
     <None Include="Utility\fsharp-calculator.fsx" />
+    <Compile Include="Utility\HttpTools.fs" />
+    <Compile Include="Utility\FsharpImage.fs" />
+    <Compile Include="GlobalHook\KeyboardHook.fs" />
+    <Compile Include="GlobalHook\KeyboardSimulator.fs" />
+    <Compile Include="GlobalHook\MouseHook.fs" />
+    <Compile Include="GlobalHook\MouseSimulator.fs" />
+    <Compile Include="GlobalHook\GlobalHook.fs" />
     <Compile Include="Geography\Geography.Celestial.fs" />
     <Compile Include="Geography\Geography.Station.fs" />
     <Compile Include="Geography\Geography.Starbase.fs" />
     <Compile Include="Geography\Geography.System.fs" />
+    <Compile Include="Geography\Geography.Route.fs" />
     <Compile Include="Product\Product.Types.fs" />
     <Compile Include="Product\Product.Records.fs" />
     <Compile Include="Product\Product.fs" />
@@ -140,7 +148,9 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Data.Linq" />
     <Reference Include="System.Numerics" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
   </ItemGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
