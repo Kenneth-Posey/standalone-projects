@@ -1,2 +1,7 @@
-﻿module MouseSimulator
+﻿namespace FunEve.GlobalHook
+
+module MouseSimulator = 
+
+
+    ()
 

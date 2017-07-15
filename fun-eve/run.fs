@@ -33,18 +33,6 @@ module main =
 
         ()
 
-// module mainEveLib =     
-//     open eZet.EveLib
-//     let runEveLib () = 
-//         // these are invalid now
-//         let accessToken = @"7q5-F9zUeZ6Orn-L8VHpH7s82nz3UkoYZbaqvDCvnuM4V8Q6xJzLgV_NDoexn08v5EDPJFHXp6WF1PHcTL-ZxQ2"
-//         let refreshToken = @"NmdnNMsujSf4nku2IAbhro_RN0BocfnYuB4bRWZFgdnBvE4E4OZKzF9IWFepmlx30"
-//         let encodedKey = @"MXRJSWMzaVlSMjNGWmNTN0t1eGh6cXVGZFFxM1BqekRUVGpaamZIdQ=="
-//         let eveCrest = new EveCrestModule.EveCrest(refreshToken, encodedKey)
-//         
-
-
-
 
 
 

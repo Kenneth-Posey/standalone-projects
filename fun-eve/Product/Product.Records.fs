@@ -1,6 +1,6 @@
 ﻿namespace FunEve.ProductDomain
 open FunEve.Base.Types
-open FunEve.ProductDomain.UnionTypes
+open FunEve.ProductDomain.Types
 
 module Records = 
 

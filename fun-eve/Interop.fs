@@ -2,7 +2,7 @@
 
 module internal InternalInterop = 
     open FunEve.Base.Types
-    open FunEve.MarketDomain
+    open FunEve.MarketDomain.Market
     open FunEve.DataDomain.Collections
 
     type iMaterial = {
@@ -21,7 +21,7 @@ module internal InternalInterop =
                 }
         ]
         
-    let name x = x |> List.map (fun x -> x.name.Value)
+    let name x = x |> List.map (fun x -> x.name) |> List.map (fun (Name x) -> x)
     
     // these are let-bound because they're useful
     let Ore = generator OreList

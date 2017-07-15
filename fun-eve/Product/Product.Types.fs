@@ -3,73 +3,34 @@
 module Types = 
 
     // Minerals
-    type Tritanium = Tritanium of int with
-        member this.Value = 
-            this |> (fun (Tritanium x) -> x)
-
-    type Pyerite = Pyerite of int with
-        member this.Value = 
-            this |> (fun (Pyerite x) -> x)
-
-    type Mexallon = Mexallon of int with
-        member this.Value = 
-            this |> (fun (Mexallon x) -> x)
-
-    type Isogen = Isogen of int with
-        member this.Value = 
-            this |> (fun (Isogen x) -> x)
-
-    type Nocxium = Nocxium of int with
-        member this.Value = 
-            this |> (fun (Nocxium x) -> x)
-
-    type Megacyte = Megacyte of int with
-        member this.Value =
-            this |> (fun (Megacyte x) -> x)
-
-    type Zydrine = Zydrine of int with
-        member this.Value = 
-            this |> (fun (Zydrine x) -> x)
-
-    type Morphite = Morphite of int with
-        member this.Value = 
-            this |> (fun (Morphite x) -> x)
+    type Minerals = 
+    | Tritanium of int
+    | Pyerite of int
+    | Mexallon of int 
+    | Isogen of int 
+    | Nocxium of int 
+    | Megacyte of int 
+    | Zydrine of int 
+    | Morphite of int
 
     // Ice Products
-    type HeavyWater = HeavyWater of int with
-        member this.Value = 
-            this |> (fun (HeavyWater x) -> x)
-
-    type HeliumIsotopes = HeliumIsotopes of int with
-        member this.Value = 
-            this |> (fun (HeliumIsotopes x) -> x)
-
-    type HydrogenIsotopes = HydrogenIsotopes of int with
-        member this.Value = 
-            this |> (fun (HydrogenIsotopes x) -> x)
-
-    type LiquidOzone = LiquidOzone of int with
-        member this.Value = 
-            this |> (fun (LiquidOzone x) -> x)
-
-    type NitrogenIsotopes = NitrogenIsotopes of int with
-        member this.Value = 
-            this |> (fun (NitrogenIsotopes x) -> x)
-
-    type OxygenIsotopes = OxygenIsotopes of int with
-        member this.Value = 
-            this |> (fun (OxygenIsotopes x) -> x)
-
-    type StrontiumClathrates = StrontiumClathrates of int with
-        member this.Value = 
-            this |> (fun (StrontiumClathrates x) -> x)
-
+    type IceProducts = 
+    | HeavyWater of int
+    | HeliumIsotopes of int
+    | HydrogenIsotopes of int
+    | LiquidOzone of int
+    | NitrogenIsotopes of int
+    | OxygenIsotopes of int 
+    | StrontiumClathrates of int 
+    
     type Compressed = 
     | IsCompressed
     | IsNotCompressed
     
 
-module UnionTypes = 
+// these are used for choices in functionality 
+// when you don't necessarily have a value that you want 
+// to wrap
 
     type Mineral = 
     | Isogen    
@@ -84,9 +45,9 @@ module UnionTypes =
 
     type IceProduct = 
     | HeavyWater
-    | HeliumIsotopes
-    | HydrogenIsotopes
+    | HeliumIsotope
+    | HydrogenIsotope
     | LiquidOzone
-    | NitrogenIsotopes
-    | OxygenIsotopes
-    | StrontiumClathrates
+    | NitrogenIsotope
+    | OxygenIsotope
+    | StrontiumClathrate

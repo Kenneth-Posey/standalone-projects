@@ -13,11 +13,20 @@ module Providers =
         setminQ : int
     }
 
-    // module SqlDatabase = 
-    //     open System
-    //     open System.Data
-    //     open System.Data.Linq
-
+    module EveXmlApiMarket = 
+        type MarketOrder = 
+            XmlProvider<"""
+            <eveapi version="2">
+                <currentTime>2017-03-21 01:47:03</currentTime>
+                <result>
+                    <rowset name="orders" key="orderID" columns="orderID,charID,stationID,volEntered,volRemaining,minVolume,orderState,typeID,range,accountKey,duration,escrow,price,bid,issued">
+                        <row orderID="4742932546" charID="96868921" stationID="1023066447083" volEntered="1000000" volRemaining="632580" minVolume="1" orderState="0" typeID="24495" range="32767" accountKey="1000" duration="90" escrow="0.00" price="89.98" bid="0" issued="2017-01-30 08:42:59"/>
+                        <row orderID="4817193124" charID="96868921" stationID="60003760" volEntered="2" volRemaining="1" minVolume="1" orderState="0" typeID="42907" range="32767" accountKey="1000" duration="90" escrow="0.00" price="155500000.00" bid="0" issued="2017-03-20 19:25:50"/>
+                        <row orderID="4817440032" charID="96868921" stationID="60003760" volEntered="6000" volRemaining="1328" minVolume="1" orderState="2" typeID="28444" range="1" accountKey="1000" duration="0" escrow="0.00" price="291000.00" bid="1" issued="2017-03-20 23:08:14"/>
+                    </rowset>
+                </result>
+                <cachedUntil>2017-03-21 02:44:03</cachedUntil>
+            </eveapi>""">
 
     module ApiFeed =
         type CrestAPI =

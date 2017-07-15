@@ -1,2 +1,6 @@
-﻿module MouseHook
+﻿namespace FunEve.GlobalHook
+
+module MouseHook = 
+
+    ()
 

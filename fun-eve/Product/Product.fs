@@ -2,7 +2,7 @@
 open FunEve.Base.Types
 
 module Product = 
-    open FunEve.ProductDomain.UnionTypes
+    open FunEve.ProductDomain.Types
     open FunEve.ProductDomain.Records
 
     let MineralTypeid x = 
@@ -18,13 +18,13 @@ module Product =
 
     let IceProductTypeid x = 
         TypeId <| match x with
-        | HeavyWater           -> 16272
-        | HeliumIsotopes       -> 16274
-        | HydrogenIsotopes     -> 17889
-        | LiquidOzone          -> 16273
-        | NitrogenIsotopes     -> 17888
-        | OxygenIsotopes       -> 17887
-        | StrontiumClathrates  -> 16275
+        | HeavyWater          -> 16272
+        | HeliumIsotope       -> 16274
+        | HydrogenIsotope     -> 17889
+        | LiquidOzone         -> 16273
+        | NitrogenIsotope     -> 17888
+        | OxygenIsotope       -> 17887
+        | StrontiumClathrate  -> 16275
 
     let MineralName x =
         Name <| match x with
@@ -39,13 +39,13 @@ module Product =
 
     let IceProductName x =
         Name <| match x with
-        | HeavyWater           -> "Heavy Water"
-        | HeliumIsotopes       -> "Helium Isotopes"
-        | HydrogenIsotopes     -> "Hydrogen Isotopes"
-        | LiquidOzone          -> "Liquid Ozone"
-        | NitrogenIsotopes     -> "Nitrogen Isotopes"
-        | OxygenIsotopes       -> "Oxygen Isotopes"
-        | StrontiumClathrates  -> "Strontium Clathrates"
+        | HeavyWater          -> "Heavy Water"
+        | HeliumIsotope       -> "Helium Isotopes"
+        | HydrogenIsotope     -> "Hydrogen Isotopes"
+        | LiquidOzone         -> "Liquid Ozone"
+        | NitrogenIsotope     -> "Nitrogen Isotopes"
+        | OxygenIsotope       -> "Oxygen Isotopes"
+        | StrontiumClathrate  -> "Strontium Clathrates"
 
         
     let MineralData x = 

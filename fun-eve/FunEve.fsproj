@@ -16,7 +16,7 @@
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
     <TargetFrameworkProfile />
-    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -32,6 +32,7 @@
     <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
     <WarningsAsErrors>25;26;</WarningsAsErrors>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <PlatformTarget>x86</PlatformTarget>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -66,6 +67,7 @@
     </PropertyGroup>
     <Error Condition="!Exists('$(SolutionDir)\.nuget\NuGet.targets')" Text="$([System.String]::Format('$(ErrorText)', '$(SolutionDir)\.nuget\NuGet.targets'))" />
     <Error Condition="!Exists('packages\System.Data.SQLite.Core.1.0.96.0\build\net451\System.Data.SQLite.Core.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\System.Data.SQLite.Core.1.0.96.0\build\net451\System.Data.SQLite.Core.targets'))" />
+    <Error Condition="!Exists('..\..\eve-contracts\evetool\EVETool\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\..\eve-contracts\evetool\EVETool\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets'))" />
   </Target>
   <ItemGroup>
     <Compile Include="Base\Base.Types.fs" />
@@ -74,14 +76,15 @@
     <Compile Include="Utility\Math.fs" />
     <Compile Include="Utility\Format.fs" />
     <Compile Include="Utility\Utility.fs" />
-    <None Include="Utility\fsharp-calculator.fsx" />
     <Compile Include="Utility\HttpTools.fs" />
     <Compile Include="Utility\FsharpImage.fs" />
+    <Compile Include="Utility\ConsoleControl.fs" />
+    <Compile Include="Utility\TryParse.fs" />
+    <Compile Include="GlobalHook\GlobalHook.fs" />
     <Compile Include="GlobalHook\KeyboardHook.fs" />
     <Compile Include="GlobalHook\KeyboardSimulator.fs" />
     <Compile Include="GlobalHook\MouseHook.fs" />
     <Compile Include="GlobalHook\MouseSimulator.fs" />
-    <Compile Include="GlobalHook\GlobalHook.fs" />
     <Compile Include="Geography\Geography.Celestial.fs" />
     <Compile Include="Geography\Geography.Station.fs" />
     <Compile Include="Geography\Geography.Starbase.fs" />
@@ -109,14 +112,17 @@
     <Compile Include="Industry\Blueprint.fs" />
     <Compile Include="Industry\Job.fs" />
     <Compile Include="Industry\Reprocess.fs" />
+    <Compile Include="Market\Market.Constants.fs" />
     <Compile Include="Market\Market.Providers.fs" />
     <Compile Include="Market\Market.Types.fs" />
     <Compile Include="Market\Market.Records.fs" />
     <Compile Include="Market\Market.Parser.fs" />
     <Compile Include="Market\Market.Crest.fs" />
+    <Compile Include="Market\Market.XmlApi.fs" />
     <Compile Include="Market\Market.fs" />
     <Compile Include="Contracts\Contracts.Constants.fs" />
     <Compile Include="Contracts\Contracts.fs" />
+    <None Include="fsharp-calculator.fsx" />
     <Compile Include="AuthKey.fs" />
     <Compile Include="CrestLogin.fs" />
     <Compile Include="Interop.fs" />
@@ -127,10 +133,60 @@
     <Content Include="app.config" />
     <Content Include="packages.config" />
     <None Include=".gitignore" />
+    <None Include="any\netstandard1.6\FSharp.Core.sigdata" />
+    <None Include="any\netstandard1.6\FSharp.Core.optdata" />
   </ItemGroup>
   <ItemGroup>
+    <Reference Include="EveLib">
+      <HintPath>..\..\eve-contracts\evetool\EVETool\packages\eZet.EveLib.3.0.0.0\lib\net45\EveLib.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EveLib.Core">
+      <HintPath>..\..\eve-contracts\evetool\EVETool\packages\eZet.EveLib.Core.3.0.9\lib\net45\EveLib.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EveLib.Element43">
+      <HintPath>..\..\eve-contracts\evetool\EVETool\packages\eZet.EveLib.Element43.3.0.0\lib\net45\EveLib.Element43.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EveLib.EveAuth">
+      <HintPath>..\..\eve-contracts\evetool\EVETool\packages\eZet.EveLib.EveAuth.3.0.1.0\lib\net45\EveLib.EveAuth.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EveLib.EveCentral">
+      <HintPath>..\..\eve-contracts\evetool\EVETool\packages\eZet.EveLib.EveCentral.3.0.1\lib\net45\EveLib.EveCentral.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EveLib.EveCrest">
+      <HintPath>..\..\eve-contracts\evetool\EVETool\packages\eZet.EveLib.EveCrest.3.4.4\lib\net45\EveLib.EveCrest.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EveLib.EveMarketData">
+      <HintPath>..\..\eve-contracts\evetool\EVETool\packages\eZet.EveLib.EveMarketData.3.0.0\lib\net45\EveLib.EveMarketData.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EveLib.EveWho">
+      <HintPath>..\..\eve-contracts\evetool\EVETool\packages\eZet.EveLib.EveWho.3.1.0.0\lib\net45\EveLib.EveWho.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EveLib.EveXml">
+      <HintPath>..\..\eve-contracts\evetool\EVETool\packages\eZet.EveLib.EveXml.3.0.9\lib\net45\EveLib.EveXml.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EveLib.StaticData">
+      <HintPath>..\..\eve-contracts\evetool\EVETool\packages\eZet.EveLib.StaticData.3.0.1\lib\net45\EveLib.StaticData.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EveLib.ZKillboard">
+      <HintPath>..\..\eve-contracts\evetool\EVETool\packages\eZet.EveLib.ZKillboard.3.0.5\lib\net45\EveLib.ZKillboard.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="FSharp.Core">
+      <HintPath>..\..\eve-contracts\evetool\EVETool\packages\FSharp.Core.4.1.12\lib\net45\FSharp.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="FSharp.Data">
-      <HintPath>..\..\eve-contracts\evetool\EVETool\packages\FSharp.Data.2.3.2\lib\net40\FSharp.Data.dll</HintPath>
+      <HintPath>..\..\eve-contracts\evetool\EVETool\packages\FSharp.Data.2.3.3\lib\net40\FSharp.Data.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="FSharp.Data.DesignTime">
@@ -139,19 +195,52 @@
     <Reference Include="FSharp.Data.TypeProviders">
       <HintPath>..\..\eve-contracts\evetool\EVETool\packages\FSharp.Data.TypeProviders.5.0.0.2\lib\net40\FSharp.Data.TypeProviders.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.Threading.Tasks">
+      <HintPath>..\..\eve-contracts\evetool\EVETool\packages\Microsoft.Bcl.Async.1.0.168\lib\net40\Microsoft.Threading.Tasks.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Threading.Tasks.Extensions">
+      <HintPath>..\..\eve-contracts\evetool\EVETool\packages\Microsoft.Bcl.Async.1.0.168\lib\net40\Microsoft.Threading.Tasks.Extensions.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Threading.Tasks.Extensions.Desktop">
+      <HintPath>..\..\eve-contracts\evetool\EVETool\packages\Microsoft.Bcl.Async.1.0.168\lib\net40\Microsoft.Threading.Tasks.Extensions.Desktop.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="mscorlib" />
     <Reference Include="Newtonsoft.Json">
-      <HintPath>..\..\eve-contracts\evetool\EVETool\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <HintPath>..\..\eve-contracts\evetool\EVETool\packages\Newtonsoft.Json.10.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Nito.AsyncEx">
+      <HintPath>..\..\eve-contracts\evetool\EVETool\packages\Nito.AsyncEx.4.0.1\lib\net45\Nito.AsyncEx.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Nito.AsyncEx.Concurrent">
+      <HintPath>..\..\eve-contracts\evetool\EVETool\packages\Nito.AsyncEx.4.0.1\lib\net45\Nito.AsyncEx.Concurrent.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Nito.AsyncEx.Enlightenment">
+      <HintPath>..\..\eve-contracts\evetool\EVETool\packages\Nito.AsyncEx.4.0.1\lib\net45\Nito.AsyncEx.Enlightenment.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Data" />
     <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Net" />
     <Reference Include="System.Numerics" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.ServiceModel.Discovery" />
+    <Reference Include="System.ValueTuple">
+      <HintPath>..\..\eve-contracts\evetool\EVETool\packages\System.ValueTuple.4.3.0\lib\netstandard1.0\System.ValueTuple.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Drawing" />
   </ItemGroup>
+  <Import Project="..\..\eve-contracts\evetool\EVETool\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets" Condition="Exists('..\..\eve-contracts\evetool\EVETool\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets')" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

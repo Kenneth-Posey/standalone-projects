@@ -13,7 +13,8 @@ module HttpTools =
                 use resp = request.GetResponse ()         
                 use responseStream = resp.GetResponseStream () 
                 use responseReader = new IO.StreamReader (responseStream) 
-                responseReader.ReadToEnd ()
+                let contents = responseReader.ReadToEnd ()
+                contents
             with 
             | _ -> defaultResponse // return empty result for exceptions
 

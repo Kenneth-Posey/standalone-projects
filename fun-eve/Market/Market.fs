@@ -1,9 +1,8 @@
-﻿namespace FunEve.MarketDomain
+﻿namespace FunEve.MarketDomain.Market
 
 module Market = 
     open FunEve.Base.Types
     open FunEve.ProductDomain.Types
-    open FunEve.ProductDomain.UnionTypes
     open FunEve.ProductDomain.Records
     open FunEve.ProductDomain.Product
     open FunEve.OreDomain.Types
@@ -38,7 +37,7 @@ module Market =
         
     // load a material's data
     let loadItem (loc:TradeHub) (item:Material)= 
-        string (TypeId item).Value
+        string (TypeId item)
         |> baseUrl loc
         |> loadUrl
         |> parse 
@@ -56,12 +55,12 @@ module Market =
 
         {
             HeavyWater          = loadItem <| IceProduct HeavyWater 
-            HeliumIsotopes      = loadItem <| IceProduct HeliumIsotopes
-            HydrogenIsotopes    = loadItem <| IceProduct HydrogenIsotopes
+            HeliumIsotopes      = loadItem <| IceProduct HeliumIsotope
+            HydrogenIsotopes    = loadItem <| IceProduct HydrogenIsotope
             LiquidOzone         = loadItem <| IceProduct LiquidOzone
-            NitrogenIsotopes    = loadItem <| IceProduct NitrogenIsotopes
-            OxygenIsotopes      = loadItem <| IceProduct OxygenIsotopes
-            StrontiumClathrates = loadItem <| IceProduct StrontiumClathrates
+            NitrogenIsotopes    = loadItem <| IceProduct NitrogenIsotope
+            OxygenIsotopes      = loadItem <| IceProduct OxygenIsotope
+            StrontiumClathrates = loadItem <| IceProduct StrontiumClathrate
         }
 
 
@@ -84,9 +83,38 @@ module Market =
         }
         
         
-    let accumulator = fun total (refine, price) -> total + (single refine * price)
-    let refineValueProcessor (pairs:(int *single) list) :Price =
-        pairs |> List.fold accumulator (0.0f) |> Price
+    let accumulator = fun total (refine, price) -> total + (refine * price)
+
+    let iceRefineValueProcessor (pairs:(IceProducts * Price) list) :Price =
+        pairs 
+        |> List.map 
+            (fun (item, (Price y)) -> 
+                match item with
+                | IceProducts.HeavyWater amt -> single amt, y
+                | IceProducts.HeliumIsotopes amt -> single amt, y
+                | IceProducts.HydrogenIsotopes amt -> single amt, y
+                | IceProducts.LiquidOzone amt -> single amt, y
+                | IceProducts.NitrogenIsotopes amt -> single amt, y
+                | IceProducts.OxygenIsotopes amt -> single amt, y
+                | IceProducts.StrontiumClathrates amt -> single amt, y
+                )
+        |> List.fold accumulator (0.0f) |> Price
+
+    let oreRefineValueProcessor (pairs:(Minerals * Price) list) :Price =
+        pairs 
+        |> List.map 
+            (fun (item, (Price y)) -> 
+                match item with
+                | Minerals.Isogen amt -> single amt, y
+                | Minerals.Megacyte amt -> single amt, y
+                | Minerals.Mexallon amt -> single amt, y
+                | Minerals.Morphite amt -> single amt, y
+                | Minerals.Nocxium amt -> single amt, y
+                | Minerals.Pyerite amt -> single amt, y
+                | Minerals.Tritanium amt -> single amt, y
+                | Minerals.Zydrine amt -> single amt, y
+                )
+        |> List.fold accumulator (0.0f) |> Price
 
     
     // calculates the maximum market value of the yield of a single ice block
@@ -97,16 +125,15 @@ module Market =
            | _ -> BaseIceProductPrices
         |> fun price -> 
             [
-                refine.HeliumIsotopes.Value,    price.HeliumIsotopes.Value
-                refine.HydrogenIsotopes.Value,  price.HydrogenIsotopes.Value
-                refine.NitrogenIsotopes.Value,  price.NitrogenIsotopes.Value
-                refine.OxygenIsotopes.Value,    price.OxygenIsotopes.Value
-            
-                refine.HeavyWater.Value,        price.HeavyWater.Value
-                refine.LiquidOzone.Value,       price.LiquidOzone.Value
-                refine.StrontiumClathrates.Value,   price.StrontiumClathrates.Value
+                refine.HeliumIsotopes,    price.HeliumIsotopes
+                refine.HydrogenIsotopes,  price.HydrogenIsotopes
+                refine.NitrogenIsotopes,  price.NitrogenIsotopes
+                refine.OxygenIsotopes,    price.OxygenIsotopes            
+                refine.HeavyWater,        price.HeavyWater
+                refine.LiquidOzone,       price.LiquidOzone
+                refine.StrontiumClathrates,   price.StrontiumClathrates
             ]
-        |> refineValueProcessor
+        |> iceRefineValueProcessor
 
     
     // calculates the maximum market value of the yield of 100 ore units (one refine unit)   
@@ -117,16 +144,16 @@ module Market =
            | _ -> BaseMineralPrices
         |> fun price -> 
             [
-                refine.Isogen.Value,      price.Isogen.Value    * 0.01f
-                refine.Megacyte.Value,    price.Megacyte.Value  * 0.01f
-                refine.Mexallon.Value,    price.Mexallon.Value  * 0.01f
-                refine.Morphite.Value,    price.Morphite.Value  * 0.01f
-                refine.Nocxium.Value,     price.Nocxium.Value   * 0.01f
-                refine.Pyerite.Value,     price.Pyerite.Value   * 0.01f
-                refine.Tritanium.Value,   price.Tritanium.Value * 0.01f
-                refine.Zydrine.Value,     price.Zydrine.Value   * 0.01f
+                refine.Isogen,      price.Isogen    |> (fun (Price x) -> x * 0.01f) |> Price
+                refine.Megacyte,    price.Megacyte  |> (fun (Price x) -> x * 0.01f) |> Price
+                refine.Mexallon,    price.Mexallon  |> (fun (Price x) -> x * 0.01f) |> Price
+                refine.Morphite,    price.Morphite  |> (fun (Price x) -> x * 0.01f) |> Price
+                refine.Nocxium,     price.Nocxium   |> (fun (Price x) -> x * 0.01f) |> Price
+                refine.Pyerite,     price.Pyerite   |> (fun (Price x) -> x * 0.01f) |> Price
+                refine.Tritanium,   price.Tritanium |> (fun (Price x) -> x * 0.01f) |> Price
+                refine.Zydrine,     price.Zydrine   |> (fun (Price x) -> x * 0.01f) |> Price
             ]
-        |> refineValueProcessor
+        |> oreRefineValueProcessor
     
 
     // main volume function
@@ -160,13 +187,15 @@ module Market =
         let mineralPrices = RefinePrice.MineralPrices <| loadMineralPrices SellOrder Jita 
 
         let calcValue (item:string * int) = 
-            let oreType, oreRarity, _ = OreDataMap.Item (fst item)                    
-            let refineValue = GetRefineValue (GetYield (OreType oreType)) mineralPrices
+            let item, qty = item
+            let itemName = FunEve.Base.Types.Name item
+            let oreType, oreRarity, _ = OreDataMap.Item itemName
+            let (Price refineValue) = GetRefineValue (GetYield (OreType oreType)) mineralPrices
             match oreRarity with
-                | Common -> refineValue.Value
-                | Uncommon -> refineValue.Value * 1.05f
-                | Rare -> refineValue.Value * 1.1f
-            |> fun x -> double x * (double (snd item))
+                | Common -> refineValue
+                | Uncommon -> refineValue * 1.05f
+                | Rare -> refineValue * 1.1f
+            |> fun value -> double value * (double qty)
                     
         let SumItems (items:(string * int) list) =
             let rec SumRec (items:(string * int) list) (total:double) = 
@@ -191,9 +220,11 @@ module Market =
         let iceProductPrices = RefinePrice.IceProductPrices <| loadIceProductPrices SellOrder Jita
 
         let calcValue (item:string * int) = 
-            let iceType, _ = IceDataMap.Item (fst item)                    
+            let item, qty = item
+            let itemName = FunEve.Base.Types.Name item
+            let iceType, _ = IceDataMap.Item itemName                
             GetRefineValue (GetYield (IceType iceType)) iceProductPrices
-            |> fun x -> double x.Value * (double (snd item))
+            |> fun (Price value) -> double value * (double qty)
                     
         let SumItems (items:(string * int) list) =
             let rec SumRec (items:(string * int) list) (total:double) = 
@@ -261,11 +292,11 @@ module Market =
     module internal unusedCode = 
         // If I have the volume of 100 units and the value of 100 units, I can work out
         // the value per m^3 by dividing the value by the volume
-        let GetVolumePrice (vol:Volume) price com mat :Price =         
+        let GetVolumePrice (Volume vol:Volume) price com mat :Price =         
             GetYield mat
             |> fun _yield -> GetRefineValue _yield price
             |> fun refine -> refine, GetVolume com mat
-            |> fun (refine, unitVolume) -> refine.Value / unitVolume.Value * vol.Value
+            |> fun ((Price refine), (Volume unitVolume)) -> refine / unitVolume * vol
             |> Price
         
         // main refined product price function

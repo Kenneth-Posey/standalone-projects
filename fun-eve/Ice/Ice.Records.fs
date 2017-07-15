@@ -6,20 +6,20 @@ module Records =
     open FunEve.IceDomain.Types
 
     type IceYield = {
-        HeavyWater          : (HeavyWater) 
-        HeliumIsotopes      : (HeliumIsotopes)    
-        HydrogenIsotopes    : (HydrogenIsotopes)   
-        LiquidOzone         : (LiquidOzone)       
-        NitrogenIsotopes    : (NitrogenIsotopes)  
-        OxygenIsotopes      : (OxygenIsotopes)    
-        StrontiumClathrates : (StrontiumClathrates)
+        HeavyWater          : (IceProducts) 
+        HeliumIsotopes      : (IceProducts)    
+        HydrogenIsotopes    : (IceProducts)   
+        LiquidOzone         : (IceProducts)       
+        NitrogenIsotopes    : (IceProducts)  
+        OxygenIsotopes      : (IceProducts)    
+        StrontiumClathrates : (IceProducts)
     }
     
     let BaseIceYield = {
-        HeavyWater          = (HeavyWater 0) 
+        HeavyWater          = (IceProducts.HeavyWater 0) 
         HeliumIsotopes      = (HeliumIsotopes 0)    
         HydrogenIsotopes    = (HydrogenIsotopes 0)   
-        LiquidOzone         = (LiquidOzone 0)       
+        LiquidOzone         = (IceProducts.LiquidOzone 0)       
         NitrogenIsotopes    = (NitrogenIsotopes 0)  
         OxygenIsotopes      = (OxygenIsotopes 0)    
         StrontiumClathrates = (StrontiumClathrates 0)

@@ -2,7 +2,6 @@
 open FunEve.Base.Types
 
 module Ice = 
-    open FunEve.ProductDomain.UnionTypes
     open FunEve.ProductDomain.Types
     open FunEve.IceDomain.Types
     open FunEve.IceDomain.Records
@@ -18,61 +17,61 @@ module Ice =
     let RawIceYield (x:IceType) :IceYield = 
         match x with
         | ClearIcicle -> 
-            { BaseIceYield with HeavyWater          = HeavyWater           50  
-                                LiquidOzone         = LiquidOzone          25  
-                                StrontiumClathrates = StrontiumClathrates  1   
-                                HeliumIsotopes      = HeliumIsotopes       300  }
+            { BaseIceYield with HeavyWater          = IceProducts.HeavyWater           50  
+                                LiquidOzone         = IceProducts.LiquidOzone          25  
+                                StrontiumClathrates = IceProducts.StrontiumClathrates  1   
+                                HeliumIsotopes      = IceProducts.HeliumIsotopes       300  }
         | EnrichedClearIcicle ->                                           
-            { BaseIceYield with HeavyWater          = HeavyWater           75  
-                                LiquidOzone         = LiquidOzone          40  
-                                StrontiumClathrates = StrontiumClathrates  1   
-                                HeliumIsotopes      = HeliumIsotopes       350  }
+            { BaseIceYield with HeavyWater          = IceProducts.HeavyWater           75  
+                                LiquidOzone         = IceProducts.LiquidOzone          40  
+                                StrontiumClathrates = IceProducts.StrontiumClathrates  1   
+                                HeliumIsotopes      = IceProducts.HeliumIsotopes       350  }
         | BlueIce ->                                                       
-            { BaseIceYield with HeavyWater          = HeavyWater           50  
-                                LiquidOzone         = LiquidOzone          25  
-                                StrontiumClathrates = StrontiumClathrates  1   
-                                OxygenIsotopes      = OxygenIsotopes       300  }
+            { BaseIceYield with HeavyWater          = IceProducts.HeavyWater           50  
+                                LiquidOzone         = IceProducts.LiquidOzone          25  
+                                StrontiumClathrates = IceProducts.StrontiumClathrates  1   
+                                OxygenIsotopes      = IceProducts.OxygenIsotopes       300  }
         | ThickBlueIce ->                                                  
-            { BaseIceYield with HeavyWater          = HeavyWater           75  
-                                LiquidOzone         = LiquidOzone          40  
-                                StrontiumClathrates = StrontiumClathrates  1   
-                                OxygenIsotopes      = OxygenIsotopes       350  }
+            { BaseIceYield with HeavyWater          = IceProducts.HeavyWater           75  
+                                LiquidOzone         = IceProducts.LiquidOzone          40  
+                                StrontiumClathrates = IceProducts.StrontiumClathrates  1   
+                                OxygenIsotopes      = IceProducts.OxygenIsotopes       350  }
         | GlacialMass ->                                                   
-            { BaseIceYield with HeavyWater          = HeavyWater           50  
-                                LiquidOzone         = LiquidOzone          25  
-                                StrontiumClathrates = StrontiumClathrates  1   
-                                HydrogenIsotopes    = HydrogenIsotopes     300  }
+            { BaseIceYield with HeavyWater          = IceProducts.HeavyWater           50  
+                                LiquidOzone         = IceProducts.LiquidOzone          25  
+                                StrontiumClathrates = IceProducts.StrontiumClathrates  1   
+                                HydrogenIsotopes    = IceProducts.HydrogenIsotopes     300  }
         | SmoothGlacialMass ->                                             
-            { BaseIceYield with HeavyWater          = HeavyWater           75  
-                                LiquidOzone         = LiquidOzone          40  
-                                StrontiumClathrates = StrontiumClathrates  1   
-                                HydrogenIsotopes    = HydrogenIsotopes     350  }
+            { BaseIceYield with HeavyWater          = IceProducts.HeavyWater           75  
+                                LiquidOzone         = IceProducts.LiquidOzone          40  
+                                StrontiumClathrates = IceProducts.StrontiumClathrates  1   
+                                HydrogenIsotopes    = IceProducts.HydrogenIsotopes     350  }
         | WhiteGlaze ->                                                    
-            { BaseIceYield with HeavyWater          = HeavyWater           50  
-                                LiquidOzone         = LiquidOzone          25  
-                                StrontiumClathrates = StrontiumClathrates  1   
-                                NitrogenIsotopes    = NitrogenIsotopes     300  }
+            { BaseIceYield with HeavyWater          = IceProducts.HeavyWater           50  
+                                LiquidOzone         = IceProducts.LiquidOzone          25  
+                                StrontiumClathrates = IceProducts.StrontiumClathrates  1   
+                                NitrogenIsotopes    = IceProducts.NitrogenIsotopes     300  }
         | PristineWhiteGlaze ->                                            
-            { BaseIceYield with HeavyWater          = HeavyWater           75  
-                                LiquidOzone         = LiquidOzone          40  
-                                StrontiumClathrates = StrontiumClathrates  1   
-                                NitrogenIsotopes    = NitrogenIsotopes     350  }
+            { BaseIceYield with HeavyWater          = IceProducts.HeavyWater           75  
+                                LiquidOzone         = IceProducts.LiquidOzone          40  
+                                StrontiumClathrates = IceProducts.StrontiumClathrates  1   
+                                NitrogenIsotopes    = IceProducts.NitrogenIsotopes     350  }
         | GlareCrust ->                                                    
-            { BaseIceYield with HeavyWater          = HeavyWater           1000
-                                LiquidOzone         = LiquidOzone          500 
-                                StrontiumClathrates = StrontiumClathrates  25   }
+            { BaseIceYield with HeavyWater          = IceProducts.HeavyWater           1000
+                                LiquidOzone         = IceProducts.LiquidOzone          500 
+                                StrontiumClathrates = IceProducts.StrontiumClathrates  25   }
         | DarkGlitter ->                                                   
-            { BaseIceYield with HeavyWater          = HeavyWater           500 
-                                LiquidOzone         = LiquidOzone          1000
-                                StrontiumClathrates = StrontiumClathrates  50   }
+            { BaseIceYield with HeavyWater          = IceProducts.HeavyWater           500 
+                                LiquidOzone         = IceProducts.LiquidOzone          1000
+                                StrontiumClathrates = IceProducts.StrontiumClathrates  50   }
         | Gelidus ->                                                       
-            { BaseIceYield with HeavyWater          = HeavyWater           250 
-                                LiquidOzone         = LiquidOzone          500 
-                                StrontiumClathrates = StrontiumClathrates  75   }
+            { BaseIceYield with HeavyWater          = IceProducts.HeavyWater           250 
+                                LiquidOzone         = IceProducts.LiquidOzone          500 
+                                StrontiumClathrates = IceProducts.StrontiumClathrates  75   }
         | Krystallos ->                                                    
-            { BaseIceYield with HeavyWater          = HeavyWater           125 
-                                LiquidOzone         = LiquidOzone          250 
-                                StrontiumClathrates = StrontiumClathrates  125  }
+            { BaseIceYield with HeavyWater          = IceProducts.HeavyWater           125 
+                                LiquidOzone         = IceProducts.LiquidOzone          250 
+                                StrontiumClathrates = IceProducts.StrontiumClathrates  125  }
     
     let RawIceTypeId (x:IceType) :TypeId =
         TypeId <| 
@@ -130,7 +129,7 @@ module Ice =
 
 
     let CompressedIceName (x:IceType) :Name = 
-        Name <| "Compressed " + (RawIceName x).Value
+        Name <| "Compressed " + ((RawIceName x) |> (fun (Name x) -> x))
 
     let IceName (x:IceType) (y:Compressed) :Name=
         match y with

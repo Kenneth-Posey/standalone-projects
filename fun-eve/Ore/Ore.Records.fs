@@ -6,25 +6,25 @@ module Records =
     open FunEve.OreDomain.Types
     
     type OreYield = {
-        Tritanium   : Tritanium
-        Pyerite     : Pyerite 
-        Mexallon    : Mexallon
-        Isogen      : Isogen  
-        Nocxium     : Nocxium 
-        Megacyte    : Megacyte
-        Zydrine     : Zydrine 
-        Morphite    : Morphite
+        Tritanium   : Minerals
+        Pyerite     : Minerals
+        Mexallon    : Minerals
+        Isogen      : Minerals
+        Nocxium     : Minerals
+        Megacyte    : Minerals
+        Zydrine     : Minerals
+        Morphite    : Minerals
     }
 
     let BaseOreYield = {
-        Tritanium   = Tritanium 0
-        Pyerite     = Pyerite 0
-        Mexallon    = Mexallon 0
-        Isogen      = Isogen 0
-        Nocxium     = Nocxium 0
-        Megacyte    = Megacyte 0
-        Zydrine     = Zydrine 0
-        Morphite    = Morphite 0
+        Tritanium   = Minerals.Tritanium 0
+        Pyerite     = Minerals.Pyerite 0
+        Mexallon    = Minerals.Mexallon 0
+        Isogen      = Minerals.Isogen 0
+        Nocxium     = Minerals.Nocxium 0
+        Megacyte    = Minerals.Megacyte 0
+        Zydrine     = Minerals.Zydrine 0
+        Morphite    = Minerals.Morphite 0
     }
 
     type OreData = {
