@@ -3,38 +3,21 @@ namespace FunEve.IndustryDomain.Blueprint
 module Types = 
     open FunEve.Base.Types
 
-    type Probability = Probability of single with
-        member this.Value = 
-            this |> (fun (Probability x) -> x)
+    type Probability = Probability of single 
             
-    type ReqSkill = ReqSkill of Level * TypeId with
-        member this.Value = 
-            this |> (fun (ReqSkill (s, t)) -> s, t)
+    type ReqSkill = ReqSkill of Level * TypeId 
                         
-    type MfgMaterial = MfgMaterial of (Qty * TypeId) list with
-        member this.Value = 
-            this |> (fun (MfgMaterial x) -> x)
+    type MfgMaterial = MfgMaterial of (Qty * TypeId) list 
 
-    type MfgProduct = MfgProduct of (Qty * TypeId * Probability option) list with
-        member this.Value =     
-            this |> (fun (MfgProduct x) -> x)
+    type MfgProduct = MfgProduct of (Qty * TypeId * Probability) list 
 
-    type MfgSkill = MfgSkill of ReqSkill list with
-        member this.Value = 
-            this |> (fun (MfgSkill x) -> x)
+    type MfgSkill = MfgSkill of ReqSkill list 
     
-    type RunLimit = RunLimit of int with
-        member this.Value =
-            this |> (fun (RunLimit x) -> x)
+    type RunLimit = RunLimit of int 
             
-    type MaterialEfficiency = MaterialEfficiency of int with
-        member this.Value =
-            this |> (fun (MaterialEfficiency x) -> x)
+    type MaterialEfficiency = MaterialEfficiency of int 
 
-    type TimeEfficiency = TimeEfficiency of int with
-        member this.Value =
-            this |> (fun (TimeEfficiency x) -> x)
-
+    type TimeEfficiency = TimeEfficiency of int
                         
     type Activities = 
     | Copying of Time

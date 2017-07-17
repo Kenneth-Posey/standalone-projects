@@ -1,13 +1,8 @@
 namespace FunEve.Geography
 
 module System =     
-    type SystemId = SystemId of int with
-        member this.Value = 
-            this |> (fun (SystemId x) -> x)
-
-    type SystemName = SystemName of string with
-        member this.Value =     
-            this |> (fun (SystemName x) -> x)
+    type SystemId = SystemId of int
+    type SystemName = SystemName of string 
 
     type TradeHub =
     | Jita    

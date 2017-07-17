@@ -4,9 +4,7 @@ open Implant
 
 module Character = 
     
-    type Attribute = Attribute of int with
-        member this.Value = 
-            this |> (fun (Attribute x) -> x)
+    type Attribute = Attribute of int 
 
     type SkillAttribute = 
     | Charisma
@@ -15,25 +13,15 @@ module Character =
     | Perception
     | Willpower
 
-    type Charisma = Charisma of Attribute with
-        member this.Value = 
-            this |> (fun (Charisma (Attribute x)) -> x)
+    type Charisma = Charisma of Attribute 
             
-    type Intelligence = Intelligence of Attribute with
-        member this.Value = 
-            this |> (fun (Intelligence (Attribute x)) -> x)
+    type Intelligence = Intelligence of Attribute 
 
-    type Memory = Memory of Attribute with
-        member this.Value = 
-            this |> (fun (Memory (Attribute x)) -> x)
+    type Memory = Memory of Attribute 
 
-    type Perception = Perception of Attribute with
-        member this.Value = 
-            this |> (fun (Perception (Attribute x)) -> x)
+    type Perception = Perception of Attribute 
 
-    type Willpower = Willpower of Attribute with
-        member this.Value = 
-            this |> (fun (Willpower (Attribute x)) -> x)
+    type Willpower = Willpower of Attribute 
 
     type CharacterAttributes = {
         Charisma : Charisma
