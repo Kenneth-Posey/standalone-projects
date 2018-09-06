@@ -182,18 +182,19 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="FSharp.Core">
-      <HintPath>..\..\eve-contracts\evetool\EVETool\packages\FSharp.Core.4.1.12\lib\net45\FSharp.Core.dll</HintPath>
+      <HintPath>..\..\Github\eve-contracts\evetool\EVETool\packages\FSharp.Core.4.5.2\lib\net45\FSharp.Core.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="FSharp.Data">
-      <HintPath>..\..\eve-contracts\evetool\EVETool\packages\FSharp.Data.2.3.3\lib\net40\FSharp.Data.dll</HintPath>
+      <HintPath>..\..\Github\eve-contracts\evetool\EVETool\packages\FSharp.Data.2.4.6\lib\net45\FSharp.Data.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="FSharp.Data.DesignTime">
       <HintPath>..\..\eve-contracts\evetool\EVETool\packages\FSharp.Data.2.2.5\lib\net40\FSharp.Data.DesignTime.dll</HintPath>
     </Reference>
     <Reference Include="FSharp.Data.TypeProviders">
-      <HintPath>..\..\eve-contracts\evetool\EVETool\packages\FSharp.Data.TypeProviders.5.0.0.2\lib\net40\FSharp.Data.TypeProviders.dll</HintPath>
+      <HintPath>..\..\Github\eve-contracts\evetool\EVETool\packages\FSharp.Data.TypeProviders.5.0.0.6\lib\net40\FSharp.Data.TypeProviders.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.Threading.Tasks">
       <HintPath>..\..\eve-contracts\evetool\EVETool\packages\Microsoft.Bcl.Async.1.0.168\lib\net40\Microsoft.Threading.Tasks.dll</HintPath>
@@ -207,9 +208,13 @@
       <HintPath>..\..\eve-contracts\evetool\EVETool\packages\Microsoft.Bcl.Async.1.0.168\lib\net40\Microsoft.Threading.Tasks.Extensions.Desktop.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Microsoft.Web.XmlTransform">
+      <HintPath>..\..\Github\eve-contracts\evetool\EVETool\packages\Microsoft.Web.Xdt.2.1.2\lib\net40\Microsoft.Web.XmlTransform.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="mscorlib" />
     <Reference Include="Newtonsoft.Json">
-      <HintPath>..\..\eve-contracts\evetool\EVETool\packages\Newtonsoft.Json.10.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <HintPath>..\..\Github\eve-contracts\evetool\EVETool\packages\Newtonsoft.Json.11.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Nito.AsyncEx">
@@ -233,7 +238,7 @@
     <Reference Include="System.ServiceModel" />
     <Reference Include="System.ServiceModel.Discovery" />
     <Reference Include="System.ValueTuple">
-      <HintPath>..\..\eve-contracts\evetool\EVETool\packages\System.ValueTuple.4.3.0\lib\netstandard1.0\System.ValueTuple.dll</HintPath>
+      <HintPath>..\..\Github\eve-contracts\evetool\EVETool\packages\System.ValueTuple.4.5.0\lib\net461\System.ValueTuple.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="System.Windows.Forms" />

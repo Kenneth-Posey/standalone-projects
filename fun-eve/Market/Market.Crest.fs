@@ -10,9 +10,27 @@ module Crest =
         let XmlApiEndpoint = "https://api.eveonline.com/"
     
     module test = 
-        type MarketProvider = JsonProvider<"https://crest-tq.eveonline.com/market/prices/">
-        let market = Http.RequestString("https://public-crest.eveonline.com/market/prices/")
+        [<Literal>]
+        let exampleResponse = """
+        [
+          {
+            "adjusted_price": 1080218.21,
+            "average_price": 1219499.38,
+            "type_id": 32772
+          },
+          {
+            "adjusted_price": 41201.95,
+            "average_price": 40024.63,
+            "type_id": 32774
+          }
+        ]
+        """
+
+        type MarketProvider = JsonProvider<exampleResponse>
+        let market = Http.RequestString("https://esi.evetech.net/latest/markets/prices/?datasource=tranquility")
         let marketMain = MarketProvider.Parse market
-        let itemTypes = marketMain.Items.[0]
+
+        let r = 3
+        //let itemTypes = marketMain.Items.[0]
         
 

@@ -28,9 +28,9 @@ module Providers =
                 <cachedUntil>2017-03-21 02:44:03</cachedUntil>
             </eveapi>""">
 
-    module ApiFeed =
-        type CrestAPI =
-            JsonProvider<"https://crest-tq.eveonline.com/">
+    // module ApiFeed =
+    //     type CrestAPI =
+    //         JsonProvider<"https://crest-tq.eveonline.com/">
 
     module MarketOrder = 
         type QuickLookResult = 
